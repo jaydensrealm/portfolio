@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web-prod:
+    image: ghcr.io/jaydensouthworth/portfolio:${IMAGE_TAG:-prod}
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portfolio-prod.rule=Host(`jaydensrealm.com`)
+      - traefik.http.routers.portfolio-prod.entrypoints=websecure
+      - traefik.http.routers.portfolio-prod.tls.certresolver=lehttp
+      - traefik.http.services.portfolio-prod.loadbalancer.server.port=3000
+    networks: [proxy]
+networks:
+  proxy:
+    external: true
+

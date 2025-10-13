@@ -8,7 +8,7 @@ services:
       - traefik.http.routers.portfolio-prod.rule=Host(`jaydensrealm.com`)
       - traefik.http.routers.portfolio-prod.entrypoints=websecure
       - traefik.http.routers.portfolio-prod.tls.certresolver=lehttp
-      - traefik.http.services.portfolio-prod.loadbalancer.server.port=3000
+      - traefik.http.services.portfolio-prod.loadbalancer.server.port=80
     networks: [proxy]
 networks:
   proxy:

@@ -1,0 +1,42 @@
+/***********************************************************************************/
+/******************************** General Vars *************************************/
+/***********************************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Tourney:ital,wght@0,100..900;1,100..900&family=Wallpoet&display=swap');
+
+
+:root {
+    
+    --section-1-primary: #23a6d5;
+    --section-1-accent: #ff004d;
+    --section-1-text: #14192b;
+    --section-1-highlight: #7e2553;
+    --section-1-background: #304684;
+    --section-1-font: "Anton SC", serif;
+
+    /* Professional & Creative Space Theme */
+    --section-2-primary: #0a1628;
+    --section-2-accent: #00ffff;
+    --section-2-text: #e6f7ff;
+    --section-2-highlight: #7f00ff;
+    --section-2-background: radial-gradient(circle at center, #1a1a4f, #0a0a2a);
+    --section-2-font: "Wallpoet", sans-serif;
+
+    /* DOS-inspired Space Theme */
+    --section-3-primary: #000420;
+    --section-3-accent: #00ff9f;
+    --section-3-text: #40ff40;
+    --section-3-highlight: #00ccff;
+    --section-3-background: linear-gradient(180deg, #001933, #000420);
+    --section-3-font: 'VT323', monospace;
+
+    /* Connection/Network Space Theme */
+    --section-4-primary: #1a0033;
+    --section-4-accent: #ff66ff;
+    --section-4-text: #f0f0ff;
+    --section-4-highlight: #00ffff;
+    --section-4-background: radial-gradient(circle at center, #2a0066, #1a0033);
+    --section-4-font: 'Montserrat', sans-serif;
+
+    --mobile-breakpoint: 768px;
+
+

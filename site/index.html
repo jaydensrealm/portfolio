@@ -1,9 +1,114 @@
-<!doctype html>
-<html>
-  <head><meta charset="utf-8"><title>hello</title></head>
-  <body style="font-family: system-ui; padding: 2rem;">
-    <h1>Hello, in-dev 👋</h1>
-    <p>If you can read this at <strong>https://in-dev.jaydensrealm.com</strong>, the pipeline works??!!</p>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jaydensrealm.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/section.css" />
+    <script src="https://kit.fontawesome.com/7ec2dc835f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="nav-wrap" id="navscroller">
+        <ul class="nav">
+            <li class="active">
+                <a href="#section1">
+                    <span class="nav-counter">/ Intro</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section2">
+                    <span class="nav-counter">/ Skills</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section3">
+                    <span class="nav-counter">/ Portfolio</span>
+                </a>
+            </li>
+            <li>
+                <a href="#section4">
+                    <span class="nav-counter">/ Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
+    <div class="portal-container">
+        <div class="section section1" id="section1">
+            <div class="overflow-hidden-wrapper">
+                <div class="section1-content content-container mousetransform">
+                    <div class="heading-container mousetransform">
+                        <h1 class="heading-name">I'm Jayden</h1>
+                        <div class="heading-socials">
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-solid fa-code"></i></a>
+                        </div>
+                        <span class="heading-subtext ">Full Stack Developer</span>
+                        <span class="heading-location">Nashville, TN.</span>
+                    </div>
+                    <div class="scrolldown-container">
+                        <div class="chevron"></div>
+                        <div class="chevron"></div>
+                        <div class="chevron"></div>
+                        <span class="scroll-text">Scroll down</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section2" id="section2">
+            <a href="#section3" class="skip-portfolio">Skip to portfolio →</a>
+            <div class="section2-content">
+                <div class="box skills-header"><h1>Languages</h1></div>
+                <div class="box"><h1>Java</h1></div>
+                <div class="box"><h1>Python</h1></div>
+                <div class="box"><h1>Rust</h1></div>
+                <div class="box"><h1>Go</h1></div>
+                <div class="box"><h1>SQL</h1></div>
+                <div class="box"><h1>Junit</h1></div>
+
+                <div class="box skills-header"><h1>Methods</h1></div>
+                <div class="box"><h1>Agile</h1></div>
+                <div class="box"><h1>CI/CD</h1></div>
+                <div class="box"><h1>DevOps</h1></div>
+                <div class="box"><h1>Scrum</h1></div>
+                <div class="box"><h1>Microservices</h1></div>
+                <div class="box"><h1>Design Patterns</h1></div>
+
+                <div class="box skills-header"><h1>Frontend</h1></div>
+                <div class="box"><h1>React</h1></div>
+                <div class="box"><h1>Redux</h1></div>
+                <div class="box"><h1>Next.JS</h1></div>
+                <div class="box"><h1>Svelte</h1></div>
+                <div class="box"><h1>Plain</h1></div>
+
+                <div class="box skills-header"><h1>Backend</h1></div>
+                <div class="box"><h1>Spring</h1></div>
+                <div class="box"><h1>Express</h1></div>
+                <div class="box"><h1>AWS</h1></div>
+                <div class="box"><h1>REST</h1></div>
+            </div>
+        </div>
+        <div class="section section3" id="section3">
+            <div class="section3-wrapper">
+                <div class="section3-content">
+                    <div class="portfolio-scroll">
+                        <div class="portfolio-item">AAAAAAAA</div>
+                        <div class="portfolio-item">AAAAAAAA</div>
+                        <div class="portfolio-item">AAAAAAAA</div>
+                        <div class="portfolio-item">AAAAAAAA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section4" id="section4">
+            <div class="section4-content content-container">
+                <h1>Section 4</h1>
+                <p>Content for section 4</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/init.mjs"></script>
+</body>
+</html>

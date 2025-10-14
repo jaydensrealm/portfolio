@@ -87,13 +87,15 @@
 }
 
 .section1 .section1-content {
-	height: 90vh;
-	display: flex;
-	width: 100%;
-	align-items: flex-start;
-	justify-content: center;
-	position: relative;
-	padding-top: 10vh;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        gap: clamp(32px, 8vh, 72px);
+        padding: clamp(60px, 14vh, 110px) clamp(32px, 6vw, 120px) clamp(40px, 10vh, 96px);
 }
 
 .section1 .section1-content::after {
@@ -130,11 +132,11 @@
 }
 
 .section1 .heading-name {
-	transform: translate(-10%, -10%);
-	color: white;
-	font-weight: 900;
-	
-	-webkit-text-stroke: 4px #d6f4f4;
+        transform: translate(-10%, -10%);
+        color: white;
+        font-weight: 900;
+
+        -webkit-text-stroke: 4px #d6f4f4;
 	font-variation-settings: "wght" 900, "ital" 1;
 	text-align: center;
 	color: transparent;
@@ -206,28 +208,30 @@
 }
 
 .scrolldown-container {
-	position: absolute;
-	bottom: 115px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	color: white;
-	font-size: 1.5em;
-	z-index: 999;
+        margin-top: auto;
+        padding-bottom: clamp(16px, 4vh, 48px);
+        color: white;
+        font-size: clamp(1.125rem, 2vw, 1.5rem);
+        text-align: center;
+        z-index: 999;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(12px, 3vh, 20px);
 }
 
 .scrolldown-container .chevron {
-	position: absolute;
-	width: 28px;
-	height: 8px;
-	opacity: 0;
-	transform: translate(-50%, 0) scale3d(0.5, 0.5, 0.5);
-	animation: move 3s ease-out infinite;
-	left: 50%;
-	top: 10px;
+        position: relative;
+        width: 28px;
+        height: 8px;
+        opacity: 0;
+        transform: translate3d(0, 0, 0) scale3d(0.5, 0.5, 0.5);
+        animation: move 3s ease-out infinite;
 }
 
 .scrolldown-container .chevron:first-child {
-	animation: move 3s ease-out 1s infinite;
+        animation: move 3s ease-out 1s infinite;
 }
 
 .scrolldown-container .chevron:nth-child(2) {
@@ -236,11 +240,11 @@
 
 .scrolldown-container .chevron::before,
 .chevron::after {
-	content: " ";
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 51%;
+        content: " ";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 51%;
 	background: #fff;
 }
 
@@ -250,9 +254,18 @@
 }
 
 .scrolldown-container .chevron::after {
-	right: 0;
-	width: 50%;
-	transform: skew(0deg, -30deg);
+        right: 0;
+        width: 50%;
+        transform: skew(0deg, -30deg);
+}
+
+.scrolldown-container .scroll-text {
+        font-size: clamp(0.75rem, 1.6vw, 1rem);
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        order: -1;
+        text-shadow: 0 0 8px rgba(7, 188, 204, 0.75), 0 0 14px rgba(230, 1, 192, 0.55);
 }
 
 @keyframes gradient {
@@ -268,21 +281,21 @@
 }
 
 @keyframes move {
-	25% {
-		opacity: 1;
-	}
-	33% {
-		opacity: 1;
-		transform: translate(-50%, 30px);
-	}
-	67% {
-		opacity: 1;
-		transform: translate(-50%, 40px);
-	}
-	100% {
-		opacity: 0;
-		transform: translate(-50%, 55px) scale3d(0.5, 0.5, 0.5);
-	}
+        25% {
+                opacity: 1;
+        }
+        33% {
+                opacity: 1;
+                transform: translate3d(0, 30px, 0);
+        }
+        67% {
+                opacity: 1;
+                transform: translate3d(0, 40px, 0);
+        }
+        100% {
+                opacity: 0;
+                transform: translate3d(0, 55px, 0) scale3d(0.5, 0.5, 0.5);
+        }
 }
 
 /***********************************************************************************/
@@ -433,17 +446,19 @@
 }
 
 .section2 .skip-portfolio {
-	position: absolute;
-	top: 50px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	color: white;
-	text-decoration: none;
-	font-size: 1.5em;
-	padding: 10px 20px;
-	border: 2px solid #e601c0;
-	border-radius: 5px;
-	transition: all 0.3s ease;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        color: white;
+        text-decoration: none;
+        font-size: clamp(1.1rem, 1.25vw + 0.75rem, 1.5rem);
+        padding: 12px 24px;
+        border: 2px solid #e601c0;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 0 18px rgba(230, 1, 192, 0.4);
 }
 
 .section2 .skip-portfolio:hover {
@@ -474,21 +489,48 @@
                 left: 0;
                 width: 100%;
                 height: auto;
-                padding: 15px 30px;
-                background: rgba(0, 0, 0, 0.6);
-                backdrop-filter: blur(12px);
+                padding: clamp(16px, 4vw, 28px) clamp(20px, 6vw, 48px);
+                display: flex;
+                justify-content: center;
+                pointer-events: none;
+                background: linear-gradient(180deg, rgba(6, 7, 20, 0.92) 0%, rgba(6, 7, 20, 0.66) 60%, rgba(6, 7, 20, 0) 100%);
+                backdrop-filter: blur(10px);
         }
 
         .nav {
                 margin: 0;
+                position: relative;
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
-                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: clamp(14px, 4.5vw, 28px);
+                width: min(960px, 100%);
+                padding: clamp(14px, 2.8vw, 22px) clamp(24px, 6.5vw, 40px);
+                border-radius: clamp(24px, 8.5vw, 48px);
+                background: rgba(9, 10, 28, 0.92);
+                border: 1px solid rgba(230, 1, 192, 0.55);
+                box-shadow: 0 22px 55px rgba(2, 3, 12, 0.65), 0 0 22px rgba(7, 188, 204, 0.25);
+                backdrop-filter: blur(12px);
+                pointer-events: auto;
+        }
+
+        .nav::after {
+                content: "";
+                position: absolute;
+                left: clamp(24px, 8vw, 40px);
+                right: clamp(24px, 8vw, 40px);
+                bottom: clamp(-18px, -4vw, -10px);
+                height: 2px;
+                background: linear-gradient(90deg, rgba(7, 188, 204, 0.95), rgba(233, 1, 154, 0.95));
+                filter: drop-shadow(0 0 10px rgba(7, 188, 204, 0.75));
         }
 
         .nav li {
-                margin-bottom: 0;
+                margin: 0;
+                position: relative;
+                flex: 0 0 auto;
+                list-style: none;
         }
 
         .nav li:after {
@@ -496,30 +538,91 @@
         }
 
         .nav li a {
-                padding: 5px 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: clamp(6px, 1.6vw, 14px);
+                padding: clamp(10px, 2.8vw, 16px) clamp(20px, 5.4vw, 32px);
+                border-radius: clamp(18px, 6.5vw, 32px);
+                color: #f2fbff;
+                font-weight: 500;
+                letter-spacing: 0.28em;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: rgba(6, 8, 26, 0.92);
+                box-shadow: inset 0 0 0 1px rgba(7, 188, 204, 0.35), 0 0 22px rgba(230, 1, 192, 0.2);
+                transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+                text-shadow: 0 0 6px rgba(7, 188, 204, 0.75), 0 0 12px rgba(230, 1, 192, 0.55);
+        }
+
+        .nav li a::before {
+                content: "";
+                position: absolute;
+                left: clamp(10px, 3vw, 18px);
+                top: 50%;
+                width: clamp(12px, 3vw, 20px);
+                height: 2px;
+                background: linear-gradient(90deg, rgba(7, 188, 204, 0.8), rgba(233, 1, 154, 0.85));
+                transform: translateY(-50%);
+                opacity: 0.9;
+                box-shadow: 0 0 8px rgba(7, 188, 204, 0.6);
+        }
+
+        .nav li a:hover {
+                background: linear-gradient(135deg, rgba(7, 188, 204, 0.28), rgba(230, 1, 192, 0.32));
+                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.55), 0 12px 26px rgba(7, 188, 204, 0.35);
+                transform: translateY(-2px);
         }
 
         .nav li .nav-counter {
-                font-size: 16px;
+                font-size: clamp(0.75rem, 2.4vw, 1rem);
+                text-shadow: 0 0 6px rgba(7, 188, 204, 0.7), 0 0 10px rgba(230, 1, 192, 0.6);
         }
 
-        .nav li.active .nav-counter {
-                font-size: 18px;
+        .nav li.active a {
+                background: linear-gradient(135deg, rgba(7, 188, 204, 0.38), rgba(230, 1, 192, 0.45));
+                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.7), 0 20px 38px rgba(7, 188, 204, 0.45);
+                transform: translateY(-3px);
         }
 
         body {
-                padding-top: 90px;
+                padding-top: clamp(110px, 18vw, 170px);
         }
 
-        .section1 .section1-content::after,
+        .section1 .section1-content::after {
+                position: absolute;
+                content: "<Code> <Code> <Code> <Code>";
+                font: clamp(5rem, 34vw, 11rem) / 0.9 "bebas neue", sans-serif;
+                left: 50%;
+                top: clamp(-180px, -20vh, -60px);
+                width: 160vw;
+                height: 160vw;
+                transform: translate(-50%, 0) rotate(26deg);
+                border: 6px solid rgba(7, 188, 204, 0.65);
+                color: rgba(230, 1, 192, 0.55);
+                opacity: 0.2;
+        }
+
         .section1 .section1-content::before {
-                content: none;
+                position: absolute;
+                content: "";
+                left: 50%;
+                top: 55%;
+                width: clamp(220px, 60vw, 320px);
+                height: clamp(220px, 60vw, 320px);
+                transform: translate(-50%, -50%) rotate(12deg);
+                border: 8px solid rgba(230, 1, 192, 0.45);
+                border-radius: 18px;
+                background: radial-gradient(circle at 35% 30%, rgba(7, 188, 204, 0.35), transparent 70%),
+                        radial-gradient(circle at 70% 65%, rgba(230, 1, 192, 0.25), transparent 70%);
+                filter: drop-shadow(0 0 25px rgba(230, 1, 192, 0.35));
         }
 
         .section1 .section1-content {
-                height: auto;
-                padding: 160px 30px 120px;
-                align-items: center;
+                min-height: auto;
+                padding: clamp(120px, 26vh, 180px) clamp(24px, 6vw, 60px) clamp(90px, 22vh, 150px);
+                gap: clamp(48px, 14vh, 140px);
         }
 
         .section1 .heading-container {
@@ -562,7 +665,8 @@
         }
 
         .section1 .scrolldown-container {
-                margin-top: 70px;
+                margin-top: clamp(36px, 12vh, 90px);
+                padding-bottom: clamp(12px, 5vh, 40px);
         }
 
         .section2-content {
@@ -592,8 +696,13 @@
 
         .section2 .skip-portfolio {
                 position: static;
-                display: inline-block;
-                margin: 0 0 40px;
+                display: block;
+                margin: 0 auto 40px;
+                transform: none;
+                max-width: 320px;
+        }
+
+        .section2 .skip-portfolio:hover {
                 transform: none;
         }
 
@@ -613,25 +722,46 @@
 
 @media screen and (max-width: 540px) {
         body {
-                padding-top: 70px;
+                padding-top: clamp(90px, 24vw, 140px);
         }
 
         .nav {
-                flex-wrap: wrap;
                 justify-content: center;
+                gap: clamp(12px, 5vw, 20px);
+                padding: clamp(12px, 4vw, 20px) clamp(18px, 7vw, 30px);
+                border-radius: 30px;
+        }
+
+        .nav::after {
+                bottom: clamp(-16px, -5vw, -12px);
         }
 
         .nav li {
-                width: 45%;
-                text-align: center;
+                width: auto;
+        }
+
+        .nav li a::before {
+                display: none;
+        }
+
+        .nav li a {
+                width: 100%;
+                padding: clamp(10px, 4vw, 16px) clamp(12px, 5vw, 22px);
+                border-radius: 26px;
         }
 
         .nav li .nav-counter {
-                font-size: 14px;
+                font-size: clamp(0.7rem, 2.9vw, 0.9rem);
         }
 
         .section1 .section1-content {
                 padding: 130px 20px 90px;
+                gap: clamp(40px, 18vh, 120px);
+        }
+
+        .section1 .scrolldown-container {
+                margin-top: clamp(32px, 14vh, 84px);
+                padding-bottom: clamp(16px, 7vh, 52px);
         }
 
         .section1 .heading-name {
@@ -643,6 +773,10 @@
 
         .section2-content {
                 grid-template-columns: 1fr;
+        }
+
+        .section2 .skip-portfolio {
+                max-width: none;
         }
 
         .section2 .box {
@@ -675,25 +809,28 @@
 }
 
 .section3-content .portfolio-scroll {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 300vw;
-	will-change: transform;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0px 5vw;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 300vw;
+        will-change: transform;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: clamp(24px, 5vw, 48px);
+        padding: 0 clamp(6vw, 8vw, 12vw);
 }
 
 .portfolio-scroll .portfolio-item {
-	width: 60vw;
-	height: 80%;
-	background: linear-gradient(-45deg, #07bccc, #482896);
-	background-size: 300% 300%;
-	animation: gradient 10s ease infinite;
-	border-radius: 10px;
-	padding: 10px;
+        flex: 0 0 auto;
+        width: clamp(280px, 72vw, 640px);
+        height: 80%;
+        background: linear-gradient(-45deg, #07bccc, #482896);
+        background-size: 300% 300%;
+        animation: gradient 10s ease infinite;
+        border-radius: 10px;
+        padding: clamp(18px, 3vw, 32px);
+        box-shadow: 0 22px 45px rgba(8, 12, 26, 0.45);
 }
 
 /***********************************************************************************/

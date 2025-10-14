@@ -87,15 +87,15 @@
 }
 
 .section1 .section1-content {
-        min-height: 100vh;
+        min-height: 90vh;
         display: flex;
         flex-direction: column;
         width: 100%;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         position: relative;
-        gap: clamp(48px, 12vh, 120px);
-        padding: clamp(80px, 18vh, 140px) clamp(32px, 6vw, 120px) clamp(120px, 22vh, 180px);
+        gap: clamp(32px, 8vh, 72px);
+        padding: clamp(60px, 14vh, 110px) clamp(32px, 6vw, 120px) clamp(40px, 10vh, 96px);
 }
 
 .section1 .section1-content::after {
@@ -132,7 +132,7 @@
 }
 
 .section1 .heading-name {
-        transform: translate(0, 0);
+        transform: translate(-10%, -10%);
         color: white;
         font-weight: 900;
 
@@ -208,10 +208,8 @@
 }
 
 .scrolldown-container {
-        position: absolute;
-        bottom: clamp(56px, 11vh, 150px);
-        left: 50%;
-        transform: translate(-50%, 0);
+        margin-top: auto;
+        padding-bottom: clamp(16px, 4vh, 48px);
         color: white;
         font-size: clamp(1.125rem, 2vw, 1.5rem);
         text-align: center;
@@ -220,7 +218,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: clamp(10px, 2.6vh, 18px);
+        gap: clamp(12px, 3vh, 20px);
 }
 
 .scrolldown-container .chevron {
@@ -623,8 +621,8 @@
 
         .section1 .section1-content {
                 min-height: auto;
-                padding: clamp(120px, 26vh, 180px) clamp(24px, 6vw, 60px) clamp(120px, 24vh, 180px);
-                gap: clamp(60px, 16vh, 160px);
+                padding: clamp(120px, 26vh, 180px) clamp(24px, 6vw, 60px) clamp(90px, 22vh, 150px);
+                gap: clamp(48px, 14vh, 140px);
         }
 
         .section1 .heading-container {
@@ -667,7 +665,8 @@
         }
 
         .section1 .scrolldown-container {
-                bottom: clamp(36px, 12vh, 90px);
+                margin-top: clamp(36px, 12vh, 90px);
+                padding-bottom: clamp(12px, 5vh, 40px);
         }
 
         .section2-content {
@@ -757,6 +756,12 @@
 
         .section1 .section1-content {
                 padding: 130px 20px 90px;
+                gap: clamp(40px, 18vh, 120px);
+        }
+
+        .section1 .scrolldown-container {
+                margin-top: clamp(32px, 14vh, 84px);
+                padding-bottom: clamp(16px, 7vh, 52px);
         }
 
         .section1 .scrolldown-container {

@@ -4,7 +4,7 @@ on:
     branches: [ in-dev, main ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions: { contents: read, packages: write }
     steps:
       - uses: actions/checkout@v4

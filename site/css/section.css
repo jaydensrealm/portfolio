@@ -332,16 +332,17 @@
 }
 
 .section2-content {
-	padding: 150px 100px;
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-gap: 10px;
-	color: white;
-	bottom: 0;
-	top: 0;
-	z-index: 2;
-	overflow: hidden;
+        position: relative;
+        padding: 150px 100px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(120px, auto);
+        color: white;
+        bottom: 0;
+        top: 0;
+        z-index: 2;
+        overflow: hidden;
 }
 
 .section2-content::before, .section2-content::after {
@@ -384,15 +385,20 @@
 }
 
 .section2 .box {
-	font-size: 2em;
-	padding: 10px;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: white 5px solid;
-	transition: transform 0.1s ease-out;
-	background: #e601c0;
+        font-size: 2em;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: white 5px solid;
+        transition: transform 0.1s ease-out;
+        background: #e601c0;
+}
+
+.section2 .box h1 {
+        font-size: clamp(1.5rem, 1.2vw + 1rem, 2.5rem);
+        text-align: center;
 }
 
 .section2 .box i{
@@ -406,11 +412,11 @@
 }
 
 .section2 .box.skills-header {
-	border: white 5px solid;
-	color: white;
-	font-size: 2vw;
-	background: linear-gradient(-45deg, #07bccc, #482896);
-	grid-column: span 2;
+        border: white 5px solid;
+        color: white;
+        font-size: clamp(1.75rem, 1.25vw + 1.25rem, 3rem);
+        background: linear-gradient(-45deg, #07bccc, #482896);
+        grid-column: span 2;
 }
 
 /* 
@@ -441,8 +447,211 @@
 }
 
 .section2 .skip-portfolio:hover {
-	background: #e601c0;
-	transform: translate(-50%, 3px);
+        background: #e601c0;
+        transform: translate(-50%, 3px);
+}
+
+@media screen and (max-width: 1400px) {
+        .section1 .section1-content::after,
+        .section1 .section1-content::before {
+                opacity: 0.2;
+        }
+
+        .section2-content {
+                padding: 120px 70px;
+                grid-template-columns: repeat(4, 1fr);
+        }
+
+        .section2 .box.skills-header {
+                grid-column: span 2;
+        }
+}
+
+@media screen and (max-width: 1024px) {
+        .nav-wrap {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
+                padding: 15px 30px;
+                background: rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(12px);
+        }
+
+        .nav {
+                margin: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+        }
+
+        .nav li {
+                margin-bottom: 0;
+        }
+
+        .nav li:after {
+                display: none;
+        }
+
+        .nav li a {
+                padding: 5px 0;
+        }
+
+        .nav li .nav-counter {
+                font-size: 16px;
+        }
+
+        .nav li.active .nav-counter {
+                font-size: 18px;
+        }
+
+        body {
+                padding-top: 90px;
+        }
+
+        .section1 .section1-content::after,
+        .section1 .section1-content::before {
+                content: none;
+        }
+
+        .section1 .section1-content {
+                height: auto;
+                padding: 160px 30px 120px;
+                align-items: center;
+        }
+
+        .section1 .heading-container {
+                width: 100%;
+                height: auto;
+                max-height: none;
+        }
+
+        .section1 .heading-name {
+                font-size: clamp(3.5rem, 12vw, 8rem);
+        }
+
+        .section1 .heading-subtext,
+        .section1 .heading-location {
+                position: static;
+                transform: none;
+                display: block;
+        }
+
+        .section1 .heading-subtext {
+                margin-top: 30px;
+                font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        .section1 .heading-location {
+                margin-top: 12px;
+                font-size: clamp(1rem, 3.2vw, 1.75rem);
+        }
+
+        .section1 .heading-socials {
+                position: static;
+                margin-top: 30px;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+        }
+
+        .section1 .heading-socials a {
+                margin: 0;
+        }
+
+        .section1 .scrolldown-container {
+                margin-top: 70px;
+        }
+
+        .section2-content {
+                grid-template-columns: repeat(3, 1fr);
+                padding: 150px 50px;
+        }
+
+        .section2 .skip-portfolio {
+                top: 110px;
+        }
+}
+
+@media screen and (max-width: 768px) {
+        .section2-content {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 130px 30px 100px;
+                grid-auto-rows: minmax(110px, auto);
+        }
+
+        .section2 .box {
+                min-height: 110px;
+        }
+
+        .section2 .box.skills-header {
+                grid-column: 1 / -1;
+        }
+
+        .section2 .skip-portfolio {
+                position: static;
+                display: inline-block;
+                margin: 0 0 40px;
+                transform: none;
+        }
+
+        .section3 {
+                height: auto;
+        }
+
+        .section3-wrapper {
+                position: static;
+                height: auto;
+        }
+
+        .section3-content {
+                padding: 80px 20px;
+        }
+}
+
+@media screen and (max-width: 540px) {
+        body {
+                padding-top: 70px;
+        }
+
+        .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+        }
+
+        .nav li {
+                width: 45%;
+                text-align: center;
+        }
+
+        .nav li .nav-counter {
+                font-size: 14px;
+        }
+
+        .section1 .section1-content {
+                padding: 130px 20px 90px;
+        }
+
+        .section1 .heading-name {
+                font-size: clamp(2.75rem, 14vw, 5rem);
+                text-shadow: 6px 6px 0px #07bccc, 8px 8px 0px #e601c0,
+                        10px 10px 0px #e9019a, 14px 14px 0px #f40468,
+                        24px 24px 6px #482896;
+        }
+
+        .section2-content {
+                grid-template-columns: 1fr;
+        }
+
+        .section2 .box {
+                min-height: 100px;
+        }
+
+        .section2 .box.skills-header {
+                font-size: clamp(1.5rem, 6vw, 2.25rem);
+        }
 }
 
 /***********************************************************************************/

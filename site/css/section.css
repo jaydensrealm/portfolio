@@ -87,15 +87,13 @@
 }
 
 .section1 .section1-content {
-        min-height: 90vh;
+        height: 90vh;
         display: flex;
-        flex-direction: column;
         width: 100%;
-        align-items: center;
-        justify-content: flex-start;
+        align-items: flex-start;
+        justify-content: center;
         position: relative;
-        gap: clamp(32px, 8vh, 72px);
-        padding: clamp(60px, 14vh, 110px) clamp(32px, 6vw, 120px) clamp(40px, 10vh, 96px);
+        padding-top: 10vh;
 }
 
 .section1 .section1-content::after {
@@ -208,8 +206,10 @@
 }
 
 .scrolldown-container {
-        margin-top: auto;
-        padding-bottom: clamp(16px, 4vh, 48px);
+        position: absolute;
+        bottom: clamp(72px, 18vh, 115px);
+        left: 50%;
+        transform: translate(-50%, 0);
         color: white;
         font-size: clamp(1.125rem, 2vw, 1.5rem);
         text-align: center;
@@ -441,8 +441,8 @@
 
 
 .section2-content .box:hover {
-	transform: scale(1.05);
-	transition: all 0.01s ease;
+        transform: scale(1.05);
+        transition: all 0.01s ease;
 }
 
 .section2 .skip-portfolio {
@@ -489,12 +489,11 @@
                 left: 0;
                 width: 100%;
                 height: auto;
-                padding: clamp(16px, 4vw, 28px) clamp(20px, 6vw, 48px);
+                padding: 18px clamp(18px, 4vw, 32px);
+                background: linear-gradient(180deg, rgba(9, 10, 28, 0.9) 0%, rgba(9, 10, 28, 0.5) 70%, rgba(9, 10, 28, 0) 100%);
+                backdrop-filter: blur(10px);
                 display: flex;
                 justify-content: center;
-                pointer-events: none;
-                background: linear-gradient(180deg, rgba(6, 7, 20, 0.92) 0%, rgba(6, 7, 20, 0.66) 60%, rgba(6, 7, 20, 0) 100%);
-                backdrop-filter: blur(10px);
         }
 
         .nav {
@@ -502,34 +501,22 @@
                 position: relative;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: clamp(14px, 4.5vw, 28px);
+                justify-content: space-between;
+                gap: clamp(12px, 3.5vw, 24px);
                 width: min(960px, 100%);
-                padding: clamp(14px, 2.8vw, 22px) clamp(24px, 6.5vw, 40px);
-                border-radius: clamp(24px, 8.5vw, 48px);
-                background: rgba(9, 10, 28, 0.92);
-                border: 1px solid rgba(230, 1, 192, 0.55);
-                box-shadow: 0 22px 55px rgba(2, 3, 12, 0.65), 0 0 22px rgba(7, 188, 204, 0.25);
-                backdrop-filter: blur(12px);
-                pointer-events: auto;
+                padding: clamp(12px, 2.4vw, 20px) clamp(18px, 5vw, 32px);
+                border-radius: clamp(18px, 5vw, 32px);
+                background: rgba(12, 14, 36, 0.78);
+                border: 1px solid rgba(7, 188, 204, 0.45);
+                box-shadow: 0 16px 38px rgba(4, 6, 20, 0.55), 0 0 16px rgba(230, 1, 192, 0.2);
         }
 
         .nav::after {
-                content: "";
-                position: absolute;
-                left: clamp(24px, 8vw, 40px);
-                right: clamp(24px, 8vw, 40px);
-                bottom: clamp(-18px, -4vw, -10px);
-                height: 2px;
-                background: linear-gradient(90deg, rgba(7, 188, 204, 0.95), rgba(233, 1, 154, 0.95));
-                filter: drop-shadow(0 0 10px rgba(7, 188, 204, 0.75));
+                display: none;
         }
 
         .nav li {
                 margin: 0;
-                position: relative;
-                flex: 0 0 auto;
                 list-style: none;
         }
 
@@ -538,56 +525,45 @@
         }
 
         .nav li a {
-                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: clamp(6px, 1.6vw, 14px);
-                padding: clamp(10px, 2.8vw, 16px) clamp(20px, 5.4vw, 32px);
-                border-radius: clamp(18px, 6.5vw, 32px);
+                gap: 10px;
+                padding: clamp(10px, 2.4vw, 16px) clamp(16px, 4.8vw, 26px);
+                border-radius: clamp(14px, 4.5vw, 24px);
                 color: #f2fbff;
                 font-weight: 500;
-                letter-spacing: 0.28em;
+                letter-spacing: 0.22em;
                 text-transform: uppercase;
                 text-decoration: none;
-                background: rgba(6, 8, 26, 0.92);
-                box-shadow: inset 0 0 0 1px rgba(7, 188, 204, 0.35), 0 0 22px rgba(230, 1, 192, 0.2);
+                background: rgba(8, 9, 24, 0.85);
+                box-shadow: inset 0 0 0 1px rgba(7, 188, 204, 0.3), 0 0 12px rgba(230, 1, 192, 0.2);
                 transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-                text-shadow: 0 0 6px rgba(7, 188, 204, 0.75), 0 0 12px rgba(230, 1, 192, 0.55);
+                text-shadow: 0 0 6px rgba(7, 188, 204, 0.7), 0 0 10px rgba(230, 1, 192, 0.5);
         }
 
         .nav li a::before {
-                content: "";
-                position: absolute;
-                left: clamp(10px, 3vw, 18px);
-                top: 50%;
-                width: clamp(12px, 3vw, 20px);
-                height: 2px;
-                background: linear-gradient(90deg, rgba(7, 188, 204, 0.8), rgba(233, 1, 154, 0.85));
-                transform: translateY(-50%);
-                opacity: 0.9;
-                box-shadow: 0 0 8px rgba(7, 188, 204, 0.6);
+                display: none;
         }
 
         .nav li a:hover {
-                background: linear-gradient(135deg, rgba(7, 188, 204, 0.28), rgba(230, 1, 192, 0.32));
-                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.55), 0 12px 26px rgba(7, 188, 204, 0.35);
+                background: linear-gradient(135deg, rgba(7, 188, 204, 0.26), rgba(230, 1, 192, 0.3));
+                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.5), 0 12px 22px rgba(7, 188, 204, 0.3);
                 transform: translateY(-2px);
         }
 
         .nav li .nav-counter {
-                font-size: clamp(0.75rem, 2.4vw, 1rem);
-                text-shadow: 0 0 6px rgba(7, 188, 204, 0.7), 0 0 10px rgba(230, 1, 192, 0.6);
+                font-size: clamp(0.75rem, 2.1vw, 0.95rem);
         }
 
         .nav li.active a {
-                background: linear-gradient(135deg, rgba(7, 188, 204, 0.38), rgba(230, 1, 192, 0.45));
-                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.7), 0 20px 38px rgba(7, 188, 204, 0.45);
+                background: linear-gradient(135deg, rgba(7, 188, 204, 0.34), rgba(230, 1, 192, 0.42));
+                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.65), 0 16px 30px rgba(7, 188, 204, 0.4);
                 transform: translateY(-3px);
         }
 
         body {
-                padding-top: clamp(110px, 18vw, 170px);
+                padding-top: clamp(90px, 16vw, 140px);
         }
 
         .section1 .section1-content::after {
@@ -620,8 +596,10 @@
         }
 
         .section1 .section1-content {
-                min-height: auto;
+                height: auto;
                 padding: clamp(120px, 26vh, 180px) clamp(24px, 6vw, 60px) clamp(90px, 22vh, 150px);
+                flex-direction: column;
+                align-items: center;
                 gap: clamp(48px, 14vh, 140px);
         }
 
@@ -665,8 +643,9 @@
         }
 
         .section1 .scrolldown-container {
+                position: static;
+                transform: none;
                 margin-top: clamp(36px, 12vh, 90px);
-                padding-bottom: clamp(12px, 5vh, 40px);
         }
 
         .section2-content {
@@ -761,11 +740,6 @@
 
         .section1 .scrolldown-container {
                 margin-top: clamp(32px, 14vh, 84px);
-                padding-bottom: clamp(16px, 7vh, 52px);
-        }
-
-        .section1 .scrolldown-container {
-                bottom: clamp(28px, 13vh, 72px);
         }
 
         .section1 .heading-name {
@@ -812,6 +786,7 @@
     background: none;
 }
 
+
 .section3-content .portfolio-scroll {
         position: absolute;
         top: 0;
@@ -819,21 +794,19 @@
         width: 300vw;
         will-change: transform;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
-        gap: clamp(24px, 5vw, 48px);
-        padding: 0 clamp(6vw, 8vw, 12vw);
+        padding: 0 5vw;
 }
 
 .portfolio-scroll .portfolio-item {
-        flex: 0 0 auto;
-        width: clamp(280px, 72vw, 640px);
+        flex: 0 0 clamp(420px, 60vw, 600px);
         height: 80%;
         background: linear-gradient(-45deg, #07bccc, #482896);
         background-size: 300% 300%;
         animation: gradient 10s ease infinite;
         border-radius: 10px;
-        padding: clamp(18px, 3vw, 32px);
+        padding: clamp(18px, 2.5vw, 32px);
         box-shadow: 0 22px 45px rgba(8, 12, 26, 0.45);
 }
 

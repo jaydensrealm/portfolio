@@ -1,0 +1,575 @@
+/***********************************************************************************/
+/*************************** General section stuff *********************************/
+/***********************************************************************************/
+
+.section {
+	position: relative;
+	top: 0; /* Stick to the top of the viewport */
+	width: 100%;
+	background-image: radial-gradient(#07bccc 2px, transparent 2px);
+	background-size: 60px 60px;
+	background-color: #1d1d1d;
+	background-attachment: fixed;
+}
+
+.content-container {
+	max-width: 1400px !important;
+	margin: auto;
+}
+
+.overflow-hidden-wrapper {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1280px) {
+	.section {
+		min-height: 100vh;
+	}
+
+	.section::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(90deg, #000, #171700, #282828);
+		background-size: 200% 100%;
+		animation: borderMove 3s linear infinite;
+	}
+
+	/* Chevron in the Middle */
+	.animated-border::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%) translateY(100%);
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 15px solid #feb47b;
+		/* Optional: Add a small animation to the chevron */
+		animation: chevronBounce 2s ease-in-out infinite;
+		z-index: 99;
+	}
+}
+
+/* Keyframes for Border Animation */
+@keyframes borderMove {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+}
+
+/* Keyframes for Chevron Animation */
+@keyframes chevronBounce {
+	0%,
+	100% {
+		transform: translateX(-50%) translateY(100%);
+	}
+	50% {
+		transform: translateX(-50%) translateY(110%);
+	}
+}
+
+/***********************************************************************************/
+/********************************* Section 1 ***************************************/
+/***********************************************************************************/
+
+.section1 {
+	top: 0;
+	font-family: var(--section-1-font);
+}
+
+.section1 .section1-content {
+	height: 90vh;
+	display: flex;
+	width: 100%;
+	align-items: flex-start;
+	justify-content: center;
+	position: relative;
+	padding-top: 10vh;
+}
+
+.section1 .section1-content::after {
+	content: "<Code> <Code> <Code> <Code> <Code> <Code> <Code> <Code>";
+	position: fixed;
+	place-content: center;
+	font: clamp(5em, Min(65vh, 35vw), 39em) / 0.75 bebas neue, sans-serif;
+	left: 50%;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	transform: translate(-50vw, 0) rotate(30deg);
+	border: #07bccc solid 10px;
+	color: #e601c0;
+	opacity: 0.5;
+	overflow: hidden;
+}
+
+.section1 .section1-content::before {
+	content: "";
+	position: absolute;
+	left: calc(90% - 100px);
+	top: calc(60vh - 100px);
+	width: 10vw;
+	height: 10vw;
+	transform: rotate(12deg);
+	border: #e601c0 solid 15px;
+	color: #e601c0;
+	overflow: hidden;
+	z-index: 20;
+	background: url("../imgs/me.png") no-repeat center center;
+	background-size: 100% 100%;
+	filter: invert(60%) sepia(90%) saturate(2264%) hue-rotate(142deg);
+}
+
+.section1 .heading-name {
+	transform: translate(-10%, -10%);
+	color: white;
+	font-weight: 900;
+	
+	-webkit-text-stroke: 4px #d6f4f4;
+	font-variation-settings: "wght" 900, "ital" 1;
+	text-align: center;
+	color: transparent;
+	text-shadow: 10px 10px 0px #07bccc, 15px 15px 0px #e601c0,
+		20px 20px 0px #e9019a, 25px 25px 0px #f40468, 45px 45px 10px #482896;
+
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 150pt;
+	font-size: clamp(8rem, -0.875rem + 14.333vw, 18rem);
+}
+
+.section1 .heading-socials{
+	position: absolute;
+	left: 30px;
+	bottom: 5vh;
+	font-size: 2em;
+}
+
+.section1 .heading-socials a {
+	text-decoration: none;
+	color: white;
+	margin-left: 10px;
+	padding: 15px;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.section1 .heading-subtext {
+	position: absolute;
+	color: white;
+	top: 95%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 4em;
+	text-shadow: 10px 10px 0px #07bccc, 1px 15px 0px #e601c0,
+		20px 20px 0px #e9019a, 25px 25px 0px #f40468, 45px 45px 10px #482896;
+}
+
+.section1 .heading-location {
+	position: absolute;
+	color: white;
+	top: 105%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2em;
+	text-shadow: 5px 5px 0px #07bccc, 8px 8px 0px #e601c0, 10px 10px 0px #e9019a,
+		13px 13px 0px #f40468, 23px 23px 5px #482896;
+}
+
+.section1 .heading-container {
+	position: relative;
+	text-align: center;
+	animation: textGlitch 5s infinite;
+	box-shadow: var(--section-1-accent) solid 0 0 10px;
+	padding: 1rem;
+	width: 80vw;
+	outline-offset: 45px;
+	height: 60vh;
+	max-height: 600px;
+	box-shadow: 10px 10px 0px #07bccc, 15px 15px 0px #e601c0,
+		20px 20px 0px #e9019a, 25px 25px 0px #f40468, 45px 45px 10px #482896;
+	background: linear-gradient(-45deg, #07bccc, #e601c0, #e9019a, #482896);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	z-index: 10;
+}
+
+.scrolldown-container {
+	position: absolute;
+	bottom: 115px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	color: white;
+	font-size: 1.5em;
+	z-index: 999;
+}
+
+.scrolldown-container .chevron {
+	position: absolute;
+	width: 28px;
+	height: 8px;
+	opacity: 0;
+	transform: translate(-50%, 0) scale3d(0.5, 0.5, 0.5);
+	animation: move 3s ease-out infinite;
+	left: 50%;
+	top: 10px;
+}
+
+.scrolldown-container .chevron:first-child {
+	animation: move 3s ease-out 1s infinite;
+}
+
+.scrolldown-container .chevron:nth-child(2) {
+	animation: move 3s ease-out 2s infinite;
+}
+
+.scrolldown-container .chevron::before,
+.chevron::after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 51%;
+	background: #fff;
+}
+
+.scrolldown-container .chevron::before {
+	left: 0;
+	transform: skew(0deg, 30deg);
+}
+
+.scrolldown-container .chevron::after {
+	right: 0;
+	width: 50%;
+	transform: skew(0deg, -30deg);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes move {
+	25% {
+		opacity: 1;
+	}
+	33% {
+		opacity: 1;
+		transform: translate(-50%, 30px);
+	}
+	67% {
+		opacity: 1;
+		transform: translate(-50%, 40px);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, 55px) scale3d(0.5, 0.5, 0.5);
+	}
+}
+
+/***********************************************************************************/
+/********************************* Section 2 ***************************************/
+/***********************************************************************************/
+
+.section2 {
+	min-height: 100vh;
+	max-width: 100vw !important;
+	margin: 0;
+	background: radial-gradient(
+				circle farthest-side at 0% 50%,
+				#1d1d1d 23.5%,
+				#0000 0
+			)
+			15.75px 22.5px,
+		radial-gradient(circle farthest-side at 0% 50%, #222222 24%, #0000 0)
+			14.25px 22.5px,
+		linear-gradient(#1d1d1d 14%, #0000 0, #0000 85%, #1d1d1d 0) 0 0,
+		linear-gradient(
+				150deg,
+				#1d1d1d 24%,
+				#222222 0,
+				#222222 26%,
+				#0000 0,
+				#0000 74%,
+				#222222 0,
+				#222222 76%,
+				#1d1d1d 0
+			)
+			0 0,
+		linear-gradient(
+				30deg,
+				#1d1d1d 24%,
+				#222222 0,
+				#222222 26%,
+				#0000 0,
+				#0000 74%,
+				#222222 0,
+				#222222 76%,
+				#1d1d1d 0
+			)
+			0 0,
+		linear-gradient(90deg, #222222 2%, #1d1d1d 0, #1d1d1d 98%, #222222 0%) 0
+			0 #1d1d1d;
+	background-size: 30px 45px;
+}
+
+.section2-content {
+	padding: 150px 100px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 10px;
+	color: white;
+	bottom: 0;
+	top: 0;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.section2-content::before, .section2-content::after {
+	content: "";
+	position: absolute;
+	place-content: center;
+	width: 100vw !important;
+	top: -55px;
+	left: 0;
+
+	--s: 15px;
+	--b: 15px;
+	--m: 3;
+
+	background: linear-gradient(-45deg, #07bccc, #e601c0, #e9019a, #482896);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	--R: calc(var(--s) * sqrt(var(--m) * var(--m) + 1) + var(--b) / 2);
+	height: calc(2 * var(--R));
+	width: 100%;
+	--_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+	mask: radial-gradient(
+				var(--R) at left 50% bottom calc(-1 * var(--m) * var(--s)),
+				var(--_g)
+			)
+			calc(50% - 2 * var(--s)) calc(50% - var(--s) / 2 - var(--b) / 2) / 
+			calc(4 * var(--s)) calc(var(--s) + var(--b)) repeat-x,
+		radial-gradient(
+				var(--R) at left 50% top calc(-1 * var(--m) * var(--s)),
+				var(--_g)
+			)
+			50% calc(50% + var(--s) / 2 + var(--b) / 2) / calc(4 * var(--s))
+			calc(var(--s) + var(--b)) repeat-x;
+}
+
+.section2-content::before{
+	top: auto;
+	bottom: -55px;
+	z-index: 999;
+}
+
+.section2 .box {
+	font-size: 2em;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: white 5px solid;
+	transition: transform 0.1s ease-out;
+	background: #e601c0;
+}
+
+.section2 .box i{
+	position: absolute;
+	font-size: 3em;
+	color: rgba(7, 188, 204, .5);
+}
+
+.section2 .box:nth-child(odd) {
+	background: #121212;
+}
+
+.section2 .box.skills-header {
+	border: white 5px solid;
+	color: white;
+	font-size: 2vw;
+	background: linear-gradient(-45deg, #07bccc, #482896);
+	grid-column: span 2;
+}
+
+/* 
+.section2-content:has(.box:hover) .box:not(:hover) {
+	transition: all 0.3s ease;
+	transform: scale(.95);
+
+} */
+
+
+.section2-content .box:hover {
+	transform: scale(1.05);
+	transition: all 0.01s ease;
+}
+
+.section2 .skip-portfolio {
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	color: white;
+	text-decoration: none;
+	font-size: 1.5em;
+	padding: 10px 20px;
+	border: 2px solid #e601c0;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+}
+
+.section2 .skip-portfolio:hover {
+	background: #e601c0;
+	transform: translate(-50%, 3px);
+}
+
+/***********************************************************************************/
+/********************************* Section 3 ***************************************/
+/***********************************************************************************/
+
+.section3 {
+    height: 300vh; /* Replace min-height: 500vh with a fixed height */
+}
+
+.section3-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.section3-content {
+    height: 100%;
+    background: none;
+}
+
+.section3-content .portfolio-scroll {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 300vw;
+	will-change: transform;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 5vw;
+}
+
+.portfolio-scroll .portfolio-item {
+	width: 60vw;
+	height: 80%;
+	background: linear-gradient(-45deg, #07bccc, #482896);
+	background-size: 300% 300%;
+	animation: gradient 10s ease infinite;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+/***********************************************************************************/
+/********************************* Section 4 ***************************************/
+/***********************************************************************************/
+
+.section4 {
+	height: 100vh;
+	width: 100vw !important;
+	margin: 0;
+	background: radial-gradient(
+				circle farthest-side at 0% 50%,
+				#1d1d1d 23.5%,
+				#0000 0
+			)
+			15.75px 22.5px,
+		radial-gradient(circle farthest-side at 0% 50%, #222222 24%, #0000 0)
+			14.25px 22.5px,
+		linear-gradient(#1d1d1d 14%, #0000 0, #0000 85%, #1d1d1d 0) 0 0,
+		linear-gradient(
+				150deg,
+				#1d1d1d 24%,
+				#222222 0,
+				#222222 26%,
+				#0000 0,
+				#0000 74%,
+				#222222 0,
+				#222222 76%,
+				#1d1d1d 0
+			)
+			0 0,
+		linear-gradient(
+				30deg,
+				#1d1d1d 24%,
+				#222222 0,
+				#222222 26%,
+				#0000 0,
+				#0000 74%,
+				#222222 0,
+				#222222 76%,
+				#1d1d1d 0
+			)
+			0 0,
+		linear-gradient(90deg, #222222 2%, #1d1d1d 0, #1d1d1d 98%, #222222 0%) 0
+			0 #1d1d1d;
+	background-size: 30px 45px;
+}
+
+.section4-content {
+	padding: 150px 100px;
+	bottom: 0;
+	top: 0;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.section4-content::before {
+	content: "";
+	position: absolute;
+	place-content: center;
+	width: 100vw !important;
+	top: -55px;
+	left: 0;
+
+	--s: 15px;
+	--b: 15px;
+	--m: 3;
+
+	background: linear-gradient(-45deg, #07bccc, #e601c0, #e9019a, #482896);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	--R: calc(var(--s) * sqrt(var(--m) * var(--m) + 1) + var(--b) / 2);
+	height: calc(2 * var(--R));
+	width: 100%;
+	--_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+	mask: radial-gradient(
+				var(--R) at left 50% bottom calc(-1 * var(--m) * var(--s)),
+				var(--_g)
+			)
+			calc(50% - 2 * var(--s)) calc(50% - var(--s) / 2 - var(--b) / 2) / 
+			calc(4 * var(--s)) calc(var(--s) + var(--b)) repeat-x,
+		radial-gradient(
+				var(--R) at left 50% top calc(-1 * var(--m) * var(--s)),
+				var(--_g)
+			)
+			50% calc(50% + var(--s) / 2 + var(--b) / 2) / calc(4 * var(--s))
+			calc(var(--s) + var(--b)) repeat-x;
+}

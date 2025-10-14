@@ -764,6 +764,10 @@
                 padding-bottom: clamp(16px, 7vh, 52px);
         }
 
+        .section1 .scrolldown-container {
+                bottom: clamp(28px, 13vh, 72px);
+        }
+
         .section1 .heading-name {
                 font-size: clamp(2.75rem, 14vw, 5rem);
                 text-shadow: 6px 6px 0px #07bccc, 8px 8px 0px #e601c0,

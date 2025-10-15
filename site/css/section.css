@@ -807,6 +807,7 @@
         animation: gradient 10s ease infinite;
         border-radius: 22px;
         padding: clamp(24px, 2.8vw, 36px);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;

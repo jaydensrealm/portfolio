@@ -162,5 +162,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 	updateTransforms();
 
 	console.log("Initialized");
-	alert("This portfolio is still being developed. Please excuse the mess.");
+	
+    alert("This portfolio is still being developed. Please excuse the mess.");
+    
+    // testing 3d effect
+    const hero = document.querySelector('.section1 .heading-container');
+    if (hero) {
+        let raf = null;
+        hero.addEventListener('mousemove', e => {
+            const r = hero.getBoundingClientRect();
+            const x = (e.clientX - (r.left + r.width/2)) / (r.width/2);
+            const y = (e.clientY - (r.top  + r.height/2)) / (r.height/2);
+            const rx = (-y * 10).toFixed(3);
+            const ry = ( x * 12).toFixed(3);
+            if (!raf) raf = requestAnimationFrame(() => {
+                hero.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+                raf = null;
+            });
+        });
+        hero.addEventListener('mouseleave', () => hero.style.transform = '');
+    }
 });

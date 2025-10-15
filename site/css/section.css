@@ -355,7 +355,7 @@
         bottom: 0;
         top: 0;
         z-index: 2;
-        overflow: hidden;
+        overflow: visible;
 }
 
 .section2-content::before, .section2-content::after {
@@ -652,15 +652,11 @@
                 transform: none;
                 max-width: 320px;
         }
-
-        .section2 .skip-portfolio:hover {
-                transform: none;
-        }
         
         .section3-content .portfolio-scroll {
-                --portfolio-card-width: clamp(260px, 80vw, 360px);
-                --portfolio-card-gap: clamp(22px, 9vw, 40px);
-                padding: 0 calc(var(--portfolio-card-gap) * 1.25);
+                --portfolio-card-width: clamp(240px, 72vw, 320px);
+                --portfolio-card-gap: clamp(24px, 10vw, 40px);
+                --portfolio-track-padding: clamp(32px, 12vw, 64px);
         }
 }
 
@@ -729,6 +725,11 @@
         .section2 .box.skills-header {
                 font-size: clamp(1.5rem, 6vw, 2.25rem);
         }
+
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(220px, 82vw, 280px);
+                --portfolio-track-padding: clamp(24px, 10vw, 48px);
+        }
 }
 
 /***********************************************************************************/
@@ -747,29 +748,33 @@
 }
 
 .section3-content {
-    height: 100%;
-    background: none;
+	position: relative;
+	height: 100%;
+	background: none;
+	overflow: hidden;
 }
 
 
 .section3-content .portfolio-scroll {
-        --portfolio-card-width: clamp(320px, 48vw, 520px);
-        --portfolio-card-gap: clamp(28px, 6vw, 64px);
+        --portfolio-card-width: clamp(320px, 40vw, 520px);
+        --portfolio-card-gap: clamp(32px, 6vw, 96px);
+        --portfolio-track-padding: clamp(48px, 10vw, 160px);
         position: absolute;
         top: 0;
+        left: 0;
         height: 100%;
-        width: calc((var(--portfolio-card-width) + var(--portfolio-card-gap)) * 4);
-        will-change: transform;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
         gap: var(--portfolio-card-gap);
-        padding: 0 calc(var(--portfolio-card-gap) * 1.5);
+        padding: 0 var(--portfolio-track-padding);
+        width: max-content;
+        will-change: transform;
 }
 
 .portfolio-scroll .portfolio-item {
         flex: 0 0 var(--portfolio-card-width);
         width: var(--portfolio-card-width);
+        min-width: var(--portfolio-card-width);
         height: clamp(320px, 60vh, 480px);
         background: linear-gradient(-45deg, #07bccc, #482896);
         background-size: 300% 300%;
@@ -832,11 +837,11 @@
 }
 
 .section4-content {
-	padding: 150px 100px;
-	bottom: 0;
-	top: 0;
-	z-index: 2;
-	overflow: hidden;
+        padding: 150px 100px;
+        bottom: 0;
+        top: 0;
+        z-index: 2;
+        overflow: visible;
 }
 
 .section4-content::before {

@@ -75,6 +75,8 @@ body::-webkit-scrollbar {
 
 .nav-wrap {
     position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
     padding: 30px;
     display: flex;
@@ -86,6 +88,8 @@ body::-webkit-scrollbar {
 
 .nav{
     margin: 0 0 100px 30px;
+    padding: 0;
+    list-style: none;
 }
 
 .nav-counter {

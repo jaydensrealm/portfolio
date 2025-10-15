@@ -309,25 +309,6 @@
 }
 
 
-
-/* 
-*  TESTING 3D effect;
-*/
-
-
-.seciton1 .heading-container {
-    perspective: 1200px;
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-
-.section1 .heading-name       { transform: translateZ(60px); }
-.section1 .heading-subtext    { transform: translateZ(40px); }
-.section1 .heading-location   { transform: translateZ(30px); }
-.section1 .heading-socials    { transform: translateZ(50px); }
-
-
-
 /***********************************************************************************/
 /********************************* Section 2 ***************************************/
 /***********************************************************************************/

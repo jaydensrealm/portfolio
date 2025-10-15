@@ -87,13 +87,13 @@
 }
 
 .section1 .section1-content {
-	height: 90vh;
-	display: flex;
-	width: 100%;
-	align-items: flex-start;
-	justify-content: center;
-	position: relative;
-	padding-top: 10vh;
+        height: 90vh;
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+        padding-top: 10vh;
 }
 
 .section1 .section1-content::after {
@@ -358,7 +358,7 @@
         bottom: 0;
         top: 0;
         z-index: 2;
-        overflow: hidden;
+        overflow: visible;
 }
 
 .section2-content::before, .section2-content::after {
@@ -444,8 +444,8 @@
 
 
 .section2-content .box:hover {
-	transform: scale(1.05);
-	transition: all 0.01s ease;
+        transform: scale(1.05);
+        transition: all 0.01s ease;
 }
 
 .section2 .skip-portfolio {
@@ -496,8 +496,10 @@
 @media screen and (max-width: 1024px) {
         .section1 .section1-content {
                 height: auto;
-                padding: 160px 30px 120px;
+                padding: clamp(120px, 26vh, 180px) clamp(24px, 6vw, 60px) clamp(90px, 22vh, 150px);
+                flex-direction: column;
                 align-items: center;
+                gap: clamp(48px, 14vh, 140px);
         }
 
         .section1 .heading-container {
@@ -650,14 +652,36 @@
         .section3 {
                 height: auto;
         }
-
-        .section3-wrapper {
-                position: static;
-                height: auto;
+        
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(240px, 72vw, 320px);
+                --portfolio-card-gap: clamp(24px, 10vw, 40px);
+                --portfolio-track-padding: clamp(32px, 12vw, 64px);
         }
 
-        .section3-content {
-                padding: 80px 20px;
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(320px, 84vw, 520px);
+                --portfolio-card-gap: clamp(32px, 12vw, 56px);
+                --portfolio-track-padding: clamp(32px, 14vw, 72px);
+        }
+
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(360px, 88vw, 600px);
+                --portfolio-card-gap: clamp(40px, 14vw, 80px);
+                --portfolio-track-padding: clamp(40px, 18vw, 88px);
+        }
+
+        .section2 .skip-portfolio {
+                --skip-offset: clamp(40px, 8vw, 56px);
+                --skip-shift: 18px;
+                font-size: clamp(1.1rem, 4.4vw, 1.4rem);
+                padding: 8px 18px;
+        }
+
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(420px, 94vw, 680px);
+                --portfolio-card-gap: clamp(48px, 18vw, 90px);
+                --portfolio-track-padding: clamp(36px, 20vw, 96px);
         }
 
         .section2 .skip-portfolio {
@@ -701,6 +725,11 @@
 
         .section1 .section1-content {
                 padding: 130px 20px 90px;
+                gap: clamp(40px, 18vh, 120px);
+        }
+
+        .section1 .scrolldown-container {
+                margin-top: clamp(32px, 14vh, 84px);
         }
 
         .section1 .heading-name {
@@ -712,6 +741,10 @@
 
         .section2-content {
                 grid-template-columns: 1fr;
+        }
+
+        .section2 .skip-portfolio {
+                max-width: none;
         }
 
         .section2 .box {
@@ -757,6 +790,7 @@
         background: none;
         overflow: hidden;
 }
+
 
 .section3-content .portfolio-scroll {
         --portfolio-card-width: clamp(600px, 48vw, 880px);

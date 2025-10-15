@@ -130,12 +130,12 @@
 }
 
 .section1 .heading-name {
-	transform: translate(-10%, -10%);
-	color: white;
-	font-weight: 900;
-	
-	-webkit-text-stroke: 4px #d6f4f4;
-	font-variation-settings: "wght" 900, "ital" 1;
+        transform: translate(-18%, -12%);
+        color: white;
+        font-weight: 900;
+
+        -webkit-text-stroke: 4px #d6f4f4;
+        font-variation-settings: "wght" 900, "ital" 1;
 	text-align: center;
 	color: transparent;
 	text-shadow: 10px 10px 0px #07bccc, 15px 15px 0px #e601c0,
@@ -146,8 +146,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 150pt;
-	font-size: clamp(8rem, -0.875rem + 14.333vw, 18rem);
+        font-size: 150pt;
+        font-size: clamp(8rem, -0.875rem + 14.333vw, 18rem);
 }
 
 .section1 .heading-socials{
@@ -206,53 +206,66 @@
 }
 
 .scrolldown-container {
-	position: absolute;
-	bottom: 115px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	color: white;
-	font-size: 1.5em;
-	z-index: 999;
+        position: absolute;
+        bottom: 115px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        color: white;
+        font-size: 1.5em;
+        text-align: center;
+        z-index: 999;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+}
+
+.scrolldown-container .scroll-text {
+        font-size: clamp(0.75rem, 1.6vw, 1rem);
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        order: -1;
+        text-shadow: 0 0 8px rgba(7, 188, 204, 0.75), 0 0 14px rgba(230, 1, 192, 0.55);
 }
 
 .scrolldown-container .chevron {
-	position: absolute;
-	width: 28px;
-	height: 8px;
-	opacity: 0;
-	transform: translate(-50%, 0) scale3d(0.5, 0.5, 0.5);
-	animation: move 3s ease-out infinite;
-	left: 50%;
-	top: 10px;
+        position: relative;
+        width: 28px;
+        height: 8px;
+        opacity: 0;
+        transform: translate3d(0, 0, 0) scale3d(0.5, 0.5, 0.5);
+        animation: move 3s ease-out infinite;
 }
 
-.scrolldown-container .chevron:first-child {
-	animation: move 3s ease-out 1s infinite;
+.scrolldown-container .chevron:first-of-type {
+        animation: move 3s ease-out 1s infinite;
 }
 
-.scrolldown-container .chevron:nth-child(2) {
-	animation: move 3s ease-out 2s infinite;
+.scrolldown-container .chevron:nth-of-type(2) {
+        animation: move 3s ease-out 2s infinite;
 }
 
 .scrolldown-container .chevron::before,
-.chevron::after {
-	content: " ";
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 51%;
-	background: #fff;
+.scrolldown-container .chevron::after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 51%;
+        background: #fff;
 }
 
 .scrolldown-container .chevron::before {
-	left: 0;
-	transform: skew(0deg, 30deg);
+        left: 0;
+        transform: skew(0deg, 30deg);
 }
 
 .scrolldown-container .chevron::after {
-	right: 0;
-	width: 50%;
-	transform: skew(0deg, -30deg);
+        right: 0;
+        width: 50%;
+        transform: skew(0deg, -30deg);
 }
 
 @keyframes gradient {
@@ -271,18 +284,18 @@
 	25% {
 		opacity: 1;
 	}
-	33% {
-		opacity: 1;
-		transform: translate(-50%, 30px);
-	}
-	67% {
-		opacity: 1;
-		transform: translate(-50%, 40px);
-	}
-	100% {
-		opacity: 0;
-		transform: translate(-50%, 55px) scale3d(0.5, 0.5, 0.5);
-	}
+        33% {
+                opacity: 1;
+                transform: translate3d(0, 30px, 0);
+        }
+        67% {
+                opacity: 1;
+                transform: translate3d(0, 40px, 0);
+        }
+        100% {
+                opacity: 0;
+                transform: translate3d(0, 55px, 0) scale3d(0.5, 0.5, 0.5);
+        }
 }
 
 /***********************************************************************************/
@@ -342,7 +355,7 @@
         bottom: 0;
         top: 0;
         z-index: 2;
-        overflow: hidden;
+        overflow: visible;
 }
 
 .section2-content::before, .section2-content::after {
@@ -530,6 +543,7 @@
 
         .section1 .heading-name {
                 font-size: clamp(3.5rem, 12vw, 8rem);
+                transform: none;
         }
 
         .section1 .heading-subtext,
@@ -562,6 +576,8 @@
         }
 
         .section1 .scrolldown-container {
+                position: static;
+                transform: none;
                 margin-top: 70px;
         }
 
@@ -596,18 +612,11 @@
                 margin: 0 0 40px;
                 transform: none;
         }
-
-        .section3 {
-                height: auto;
-        }
-
-        .section3-wrapper {
-                position: static;
-                height: auto;
-        }
-
-        .section3-content {
-                padding: 80px 20px;
+        
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(240px, 72vw, 320px);
+                --portfolio-card-gap: clamp(24px, 10vw, 40px);
+                --portfolio-track-padding: clamp(32px, 12vw, 64px);
         }
 }
 
@@ -652,6 +661,11 @@
         .section2 .box.skills-header {
                 font-size: clamp(1.5rem, 6vw, 2.25rem);
         }
+
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(220px, 82vw, 280px);
+                --portfolio-track-padding: clamp(24px, 10vw, 48px);
+        }
 }
 
 /***********************************************************************************/
@@ -670,30 +684,45 @@
 }
 
 .section3-content {
-    height: 100%;
-    background: none;
+	position: relative;
+	height: 100%;
+	background: none;
+	overflow: hidden;
 }
 
 .section3-content .portfolio-scroll {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 300vw;
-	will-change: transform;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0px 5vw;
+        --portfolio-card-width: clamp(320px, 40vw, 520px);
+        --portfolio-card-gap: clamp(32px, 6vw, 96px);
+        --portfolio-track-padding: clamp(48px, 10vw, 160px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: var(--portfolio-card-gap);
+        padding: 0 var(--portfolio-track-padding);
+        width: max-content;
+        will-change: transform;
 }
 
 .portfolio-scroll .portfolio-item {
-	width: 60vw;
-	height: 80%;
-	background: linear-gradient(-45deg, #07bccc, #482896);
-	background-size: 300% 300%;
-	animation: gradient 10s ease infinite;
-	border-radius: 10px;
-	padding: 10px;
+        flex: 0 0 var(--portfolio-card-width);
+        width: var(--portfolio-card-width);
+        min-width: var(--portfolio-card-width);
+        height: clamp(320px, 60vh, 480px);
+        background: linear-gradient(-45deg, #07bccc, #482896);
+        background-size: 300% 300%;
+        animation: gradient 10s ease infinite;
+        border-radius: 18px;
+        padding: clamp(18px, 2vw, 28px);
+        box-shadow: 0 25px 65px rgba(7, 188, 204, 0.25), 0 0 45px rgba(230, 1, 192, 0.35);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(16px, 2.6vw, 28px);
+        color: #f8f9ff;
 }
 
 /***********************************************************************************/
@@ -743,11 +772,11 @@
 }
 
 .section4-content {
-	padding: 150px 100px;
-	bottom: 0;
-	top: 0;
-	z-index: 2;
-	overflow: hidden;
+        padding: 150px 100px;
+        bottom: 0;
+        top: 0;
+        z-index: 2;
+        overflow: visible;
 }
 
 .section4-content::before {

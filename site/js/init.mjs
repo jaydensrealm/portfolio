@@ -4,7 +4,10 @@ class ScrollEffects {
 		this.nav = nav;
 		this.sections = Array.from(wrapper.querySelectorAll(".section"));
 		this.navItems = Array.from(nav.querySelectorAll("li"));
-		this.portfolioSection = document.querySelector(".section3-content");
+                this.portfolioSection = document.querySelector(".section3-content");
+                this.portfolioTrack = this.portfolioSection
+                        ? this.portfolioSection.querySelector(".portfolio-scroll")
+                        : null;
 
 		// Initialize
 		this.init();
@@ -19,15 +22,33 @@ class ScrollEffects {
 	}
 
 	// scroll transform
-	transformPortfolioScroll() {
-		const offsetTopOfScroll = this.portfolioSection.parentElement.parentElement.offsetTop;
-		console.log("offset, ", offsetTopOfScroll);
-		let percentage = (window.scrollY - offsetTopOfScroll) / window.innerHeight * 100;
-		console.log("percent 1, ", percentage);
-		percentage = percentage < 0 ? 0 : percentage > 200 ? 200 : percentage;
-		console.log("percent 2, ", percentage);
-		this.portfolioSection.style.transform = `translate3d(${-(percentage)}vw, 0, 0)`;
-	}
+        transformPortfolioScroll() {
+                if (!this.portfolioSection || !this.portfolioTrack) {
+                        return;
+                }
+
+                const section = this.portfolioSection.closest(".section3");
+                if (!section) {
+                        return;
+                }
+
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight - window.innerHeight;
+                if (sectionHeight <= 0) {
+                        this.portfolioTrack.style.transform = "translate3d(0, 0, 0)";
+                        return;
+                }
+
+                const progress = Math.min(
+                        Math.max((window.scrollY - sectionTop) / sectionHeight, 0),
+                        1
+                );
+
+                const maxTranslate = this.portfolioTrack.scrollWidth - window.innerWidth;
+                const translateX = maxTranslate > 0 ? Math.min(progress * maxTranslate, maxTranslate) : 0;
+
+                this.portfolioTrack.style.transform = `translate3d(${-translateX}px, 0, 0)`;
+        }
 
 	onScroll() {
 		const scrollPosition = window.scrollY;

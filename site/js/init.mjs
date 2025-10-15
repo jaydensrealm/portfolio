@@ -88,12 +88,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 	var root = document.querySelector(":root");
 
 
-	const wrapper = document.querySelector(".portal-container");
-	const nav = document.querySelector("#navscroller");
-	new ScrollEffects(wrapper, nav);
+        const wrapper = document.querySelector(".portal-container");
+        const nav = document.querySelector("#navscroller");
+        new ScrollEffects(wrapper, nav);
 
-	const moveForce = 10; // max popup movement in pixels
-	var rotateForce = 7; // max popup rotation in deg
+        const skipLink = document.querySelector(".skip-portfolio");
+        if (skipLink) {
+                skipLink.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        const targetSelector = skipLink.getAttribute("href");
+                        if (!targetSelector) {
+                                return;
+                        }
+                        const target = document.querySelector(targetSelector);
+                        if (target) {
+                                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                });
+        }
+
+        const moveForce = 10; // max popup movement in pixels
+        var rotateForce = 7; // max popup rotation in deg
 
 	// Add lerp helper
 	const lerp = (start, end, t) => start * (1 - t) + end * t;

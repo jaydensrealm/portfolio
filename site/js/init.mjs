@@ -44,7 +44,13 @@ class ScrollEffects {
                         1
                 );
 
-                const maxTranslate = this.portfolioTrack.scrollWidth - window.innerWidth;
+                const viewportWidth = section.clientWidth;
+                const computedStyles = window.getComputedStyle(this.portfolioTrack);
+                const paddingRight = parseFloat(computedStyles.paddingRight) || 0;
+                const maxTranslate = Math.max(
+                        this.portfolioTrack.scrollWidth - viewportWidth - paddingRight,
+                        0
+                );
                 const translateX = maxTranslate > 0 ? Math.min(progress * maxTranslate, maxTranslate) : 0;
 
                 this.portfolioTrack.style.transform = `translate3d(${-translateX}px, 0, 0)`;

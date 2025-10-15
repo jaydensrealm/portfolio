@@ -130,12 +130,12 @@
 }
 
 .section1 .heading-name {
-        transform: translate(-10%, -10%);
+        transform: translate(-18%, -12%);
         color: white;
         font-weight: 900;
 
         -webkit-text-stroke: 4px #d6f4f4;
-	font-variation-settings: "wght" 900, "ital" 1;
+        font-variation-settings: "wght" 900, "ital" 1;
 	text-align: center;
 	color: transparent;
 	text-shadow: 10px 10px 0px #07bccc, 15px 15px 0px #e601c0,
@@ -146,8 +146,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 150pt;
-	font-size: clamp(8rem, -0.875rem + 14.333vw, 18rem);
+        font-size: 150pt;
+        font-size: clamp(8rem, -0.875rem + 14.333vw, 18rem);
 }
 
 .section1 .heading-socials{
@@ -207,18 +207,27 @@
 
 .scrolldown-container {
         position: absolute;
-        bottom: clamp(72px, 18vh, 115px);
+        bottom: 115px;
         left: 50%;
         transform: translate(-50%, 0);
         color: white;
-        font-size: clamp(1.125rem, 2vw, 1.5rem);
+        font-size: 1.5em;
         text-align: center;
         z-index: 999;
         pointer-events: none;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: clamp(12px, 3vh, 20px);
+        gap: 18px;
+}
+
+.scrolldown-container .scroll-text {
+        font-size: clamp(0.75rem, 1.6vw, 1rem);
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        order: -1;
+        text-shadow: 0 0 8px rgba(7, 188, 204, 0.75), 0 0 14px rgba(230, 1, 192, 0.55);
 }
 
 .scrolldown-container .chevron {
@@ -230,42 +239,33 @@
         animation: move 3s ease-out infinite;
 }
 
-.scrolldown-container .chevron:first-child {
+.scrolldown-container .chevron:first-of-type {
         animation: move 3s ease-out 1s infinite;
 }
 
-.scrolldown-container .chevron:nth-child(2) {
-	animation: move 3s ease-out 2s infinite;
+.scrolldown-container .chevron:nth-of-type(2) {
+        animation: move 3s ease-out 2s infinite;
 }
 
 .scrolldown-container .chevron::before,
-.chevron::after {
+.scrolldown-container .chevron::after {
         content: " ";
         position: absolute;
         top: 0;
         height: 100%;
         width: 51%;
-	background: #fff;
+        background: #fff;
 }
 
 .scrolldown-container .chevron::before {
-	left: 0;
-	transform: skew(0deg, 30deg);
+        left: 0;
+        transform: skew(0deg, 30deg);
 }
 
 .scrolldown-container .chevron::after {
         right: 0;
         width: 50%;
         transform: skew(0deg, -30deg);
-}
-
-.scrolldown-container .scroll-text {
-        font-size: clamp(0.75rem, 1.6vw, 1rem);
-        letter-spacing: 0.35em;
-        text-transform: uppercase;
-        opacity: 0.85;
-        order: -1;
-        text-shadow: 0 0 8px rgba(7, 188, 204, 0.75), 0 0 14px rgba(230, 1, 192, 0.55);
 }
 
 @keyframes gradient {
@@ -281,9 +281,9 @@
 }
 
 @keyframes move {
-        25% {
-                opacity: 1;
-        }
+	25% {
+		opacity: 1;
+	}
         33% {
                 opacity: 1;
                 transform: translate3d(0, 30px, 0);
@@ -489,30 +489,24 @@
                 left: 0;
                 width: 100%;
                 height: auto;
-                padding: 18px clamp(18px, 4vw, 32px);
-                background: linear-gradient(180deg, rgba(9, 10, 28, 0.9) 0%, rgba(9, 10, 28, 0.5) 70%, rgba(9, 10, 28, 0) 100%);
-                backdrop-filter: blur(10px);
-                display: flex;
-                justify-content: center;
+                padding: 15px 30px;
+                background: linear-gradient(135deg, rgba(7, 188, 204, 0.12), rgba(230, 1, 192, 0.08));
+                backdrop-filter: blur(14px);
+                border: 1px solid rgba(7, 188, 204, 0.35);
+                box-shadow: 0 18px 36px rgba(7, 188, 204, 0.25), 0 0 24px rgba(230, 1, 192, 0.3);
+                border-radius: 28px;
         }
 
         .nav {
                 margin: 0;
                 position: relative;
                 display: flex;
+                justify-content: center;
                 align-items: center;
-                justify-content: space-between;
-                gap: clamp(12px, 3.5vw, 24px);
-                width: min(960px, 100%);
-                padding: clamp(12px, 2.4vw, 20px) clamp(18px, 5vw, 32px);
-                border-radius: clamp(18px, 5vw, 32px);
-                background: rgba(12, 14, 36, 0.78);
-                border: 1px solid rgba(7, 188, 204, 0.45);
-                box-shadow: 0 16px 38px rgba(4, 6, 20, 0.55), 0 0 16px rgba(230, 1, 192, 0.2);
-        }
-
-        .nav::after {
-                display: none;
+                gap: 24px;
+                padding: 10px 18px;
+                background: rgba(3, 6, 18, 0.75);
+                border-radius: 22px;
         }
 
         .nav li {
@@ -525,31 +519,8 @@
         }
 
         .nav li a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-                padding: clamp(10px, 2.4vw, 16px) clamp(16px, 4.8vw, 26px);
-                border-radius: clamp(14px, 4.5vw, 24px);
-                color: #f2fbff;
-                font-weight: 500;
-                letter-spacing: 0.22em;
-                text-transform: uppercase;
-                text-decoration: none;
-                background: rgba(8, 9, 24, 0.85);
-                box-shadow: inset 0 0 0 1px rgba(7, 188, 204, 0.3), 0 0 12px rgba(230, 1, 192, 0.2);
-                transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-                text-shadow: 0 0 6px rgba(7, 188, 204, 0.7), 0 0 10px rgba(230, 1, 192, 0.5);
-        }
-
-        .nav li a::before {
-                display: none;
-        }
-
-        .nav li a:hover {
-                background: linear-gradient(135deg, rgba(7, 188, 204, 0.26), rgba(230, 1, 192, 0.3));
-                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.5), 0 12px 22px rgba(7, 188, 204, 0.3);
-                transform: translateY(-2px);
+                padding: 10px 4px;
+                color: rgba(235, 245, 255, 0.9);
         }
 
         .nav li .nav-counter {
@@ -611,6 +582,7 @@
 
         .section1 .heading-name {
                 font-size: clamp(3.5rem, 12vw, 8rem);
+                transform: none;
         }
 
         .section1 .heading-subtext,
@@ -645,7 +617,7 @@
         .section1 .scrolldown-container {
                 position: static;
                 transform: none;
-                margin-top: clamp(36px, 12vh, 90px);
+                margin-top: 70px;
         }
 
         .section2-content {
@@ -684,18 +656,11 @@
         .section2 .skip-portfolio:hover {
                 transform: none;
         }
-
-        .section3 {
-                height: auto;
-        }
-
-        .section3-wrapper {
-                position: static;
-                height: auto;
-        }
-
-        .section3-content {
-                padding: 80px 20px;
+        
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(260px, 80vw, 360px);
+                --portfolio-card-gap: clamp(22px, 9vw, 40px);
+                padding: 0 calc(var(--portfolio-card-gap) * 1.25);
         }
 }
 
@@ -788,26 +753,36 @@
 
 
 .section3-content .portfolio-scroll {
+        --portfolio-card-width: clamp(320px, 48vw, 520px);
+        --portfolio-card-gap: clamp(28px, 6vw, 64px);
         position: absolute;
         top: 0;
         height: 100%;
-        width: 300vw;
+        width: calc((var(--portfolio-card-width) + var(--portfolio-card-gap)) * 4);
         will-change: transform;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
-        padding: 0 5vw;
+        gap: var(--portfolio-card-gap);
+        padding: 0 calc(var(--portfolio-card-gap) * 1.5);
 }
 
 .portfolio-scroll .portfolio-item {
-        flex: 0 0 clamp(420px, 60vw, 600px);
-        height: 80%;
+        flex: 0 0 var(--portfolio-card-width);
+        width: var(--portfolio-card-width);
+        height: clamp(320px, 60vh, 480px);
         background: linear-gradient(-45deg, #07bccc, #482896);
         background-size: 300% 300%;
         animation: gradient 10s ease infinite;
-        border-radius: 10px;
-        padding: clamp(18px, 2.5vw, 32px);
-        box-shadow: 0 22px 45px rgba(8, 12, 26, 0.45);
+        border-radius: 18px;
+        padding: clamp(18px, 2vw, 28px);
+        box-shadow: 0 25px 65px rgba(7, 188, 204, 0.25), 0 0 45px rgba(230, 1, 192, 0.35);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(16px, 2.6vw, 28px);
+        color: #f8f9ff;
 }
 
 /***********************************************************************************/

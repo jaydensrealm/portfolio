@@ -207,17 +207,20 @@
 
 .scrolldown-container {
         position: absolute;
-        bottom: 115px;
         left: 50%;
-        transform: translate(-50%, 0);
+        bottom: clamp(42px, 10vh, 120px);
+        transform: translateX(-50%);
         color: white;
         font-size: 1.5em;
         text-align: center;
         z-index: 999;
         pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0 16px;
         width: max-content;
-        min-height: 110px;
-        padding: 0 16px 60px;
 }
 
 .scrolldown-container .scroll-text {
@@ -226,19 +229,17 @@
         letter-spacing: 0.35em;
         text-transform: uppercase;
         opacity: 0.85;
-        margin-bottom: 20px;
+        margin-bottom: 12px;
         text-shadow: 0 0 8px rgba(7, 188, 204, 0.75), 0 0 14px rgba(230, 1, 192, 0.55);
 }
 
 .scrolldown-container .chevron {
-        position: absolute;
-        left: 50%;
-        top: 30px;
+        position: relative;
         width: 28px;
         height: 8px;
         opacity: 0;
-        transform: translate(-50%, 0) scale3d(0.5, 0.5, 0.5);
-        animation: move 3s ease-out infinite;
+        transform: scale3d(0.5, 0.5, 0.5) translateY(0);
+        animation: chevronDrop 3s ease-out infinite;
 }
 
 .scrolldown-container .chevron:first-of-type {
@@ -247,6 +248,10 @@
 
 .scrolldown-container .chevron:nth-of-type(2) {
         animation-delay: 2s;
+}
+
+.scrolldown-container .chevron + .chevron {
+        margin-top: -6px;
 }
 
 .scrolldown-container .chevron::before,
@@ -282,21 +287,24 @@
 	}
 }
 
-@keyframes move {
+@keyframes chevronDrop {
+        0% {
+                opacity: 0;
+                transform: scale3d(0.5, 0.5, 0.5) translateY(0);
+        }
         25% {
                 opacity: 1;
         }
-        33% {
-                opacity: 1;
-                transform: translate(-50%, 30px);
+        50% {
+                transform: scale3d(0.85, 0.85, 0.85) translateY(14px);
         }
-        67% {
+        75% {
                 opacity: 1;
-                transform: translate(-50%, 40px);
+                transform: scale3d(0.9, 0.9, 0.9) translateY(24px);
         }
         100% {
                 opacity: 0;
-                transform: translate(-50%, 55px) scale3d(0.5, 0.5, 0.5);
+                transform: scale3d(0.5, 0.5, 0.5) translateY(38px);
         }
 }
 
@@ -652,30 +660,11 @@
         .section3 {
                 height: auto;
         }
-        
-        .section3-content .portfolio-scroll {
-                --portfolio-card-width: clamp(240px, 72vw, 320px);
-                --portfolio-card-gap: clamp(24px, 10vw, 40px);
-                --portfolio-track-padding: clamp(32px, 12vw, 64px);
-        }
-
-        .section3-content .portfolio-scroll {
-                --portfolio-card-width: clamp(320px, 84vw, 520px);
-                --portfolio-card-gap: clamp(32px, 12vw, 56px);
-                --portfolio-track-padding: clamp(32px, 14vw, 72px);
-        }
-
-        .section3-content .portfolio-scroll {
-                --portfolio-card-width: clamp(360px, 88vw, 600px);
-                --portfolio-card-gap: clamp(40px, 14vw, 80px);
-                --portfolio-track-padding: clamp(40px, 18vw, 88px);
-        }
 
         .section2 .skip-portfolio {
-                --skip-offset: clamp(40px, 8vw, 56px);
-                --skip-shift: 18px;
-                font-size: clamp(1.1rem, 4.4vw, 1.4rem);
-                padding: 8px 18px;
+                top: clamp(40px, 8.6vw, 54px);
+                font-size: clamp(1.05rem, 4.2vw, 1.3rem);
+                padding: clamp(8px, 1vw + 6px, 11px) clamp(18px, 1.5vw + 12px, 24px);
         }
 
         .section3-content .portfolio-scroll {

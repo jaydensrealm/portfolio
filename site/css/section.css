@@ -448,9 +448,11 @@
 
 .section2 .skip-portfolio {
         position: absolute;
-        top: 50px;
+        --skip-offset: 50px;
+        --skip-shift: 0;
+        top: var(--skip-offset);
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, var(--skip-shift));
         color: white;
         text-decoration: none;
         font-size: 1.5em;
@@ -462,7 +464,7 @@
 
 .section2 .skip-portfolio:hover {
         background: #e601c0;
-        transform: translate(-50%, 3px);
+        transform: translate(-50%, calc(var(--skip-shift) + 3px));
 }
 
 @media screen and (max-width: 1400px) {
@@ -482,89 +484,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-        .nav-wrap {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: auto;
-                padding: 15px 30px;
-                background: linear-gradient(135deg, rgba(7, 188, 204, 0.12), rgba(230, 1, 192, 0.08));
-                backdrop-filter: blur(14px);
-                border: 1px solid rgba(7, 188, 204, 0.35);
-                box-shadow: 0 18px 36px rgba(7, 188, 204, 0.25), 0 0 24px rgba(230, 1, 192, 0.3);
-                border-radius: 28px;
-        }
-
-        .nav {
-                margin: 0;
-                position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 24px;
-                padding: 10px 18px;
-                background: rgba(3, 6, 18, 0.75);
-                border-radius: 22px;
-        }
-
-        .nav li {
-                margin: 0;
-                list-style: none;
-        }
-
-        .nav li:after {
-                display: none;
-        }
-
-        .nav li a {
-                padding: 10px 4px;
-                color: rgba(235, 245, 255, 0.9);
-        }
-
-        .nav li .nav-counter {
-                font-size: clamp(0.75rem, 2.1vw, 0.95rem);
-        }
-
-        .nav li.active a {
-                background: linear-gradient(135deg, rgba(7, 188, 204, 0.34), rgba(230, 1, 192, 0.42));
-                box-shadow: inset 0 0 0 1px rgba(230, 1, 192, 0.65), 0 16px 30px rgba(7, 188, 204, 0.4);
-                transform: translateY(-3px);
-        }
-
-        body {
-                padding-top: clamp(90px, 16vw, 140px);
-        }
-
-        .section1 .section1-content::after {
-                position: absolute;
-                content: "<Code> <Code> <Code> <Code>";
-                font: clamp(5rem, 34vw, 11rem) / 0.9 "bebas neue", sans-serif;
-                left: 50%;
-                top: clamp(-180px, -20vh, -60px);
-                width: 160vw;
-                height: 160vw;
-                transform: translate(-50%, 0) rotate(26deg);
-                border: 6px solid rgba(7, 188, 204, 0.65);
-                color: rgba(230, 1, 192, 0.55);
-                opacity: 0.2;
-        }
-
-        .section1 .section1-content::before {
-                position: absolute;
-                content: "";
-                left: 50%;
-                top: 55%;
-                width: clamp(220px, 60vw, 320px);
-                height: clamp(220px, 60vw, 320px);
-                transform: translate(-50%, -50%) rotate(12deg);
-                border: 8px solid rgba(230, 1, 192, 0.45);
-                border-radius: 18px;
-                background: radial-gradient(circle at 35% 30%, rgba(7, 188, 204, 0.35), transparent 70%),
-                        radial-gradient(circle at 70% 65%, rgba(230, 1, 192, 0.25), transparent 70%);
-                filter: drop-shadow(0 0 25px rgba(230, 1, 192, 0.35));
-        }
-
         .section1 .section1-content {
                 height: auto;
                 padding: clamp(120px, 26vh, 180px) clamp(24px, 6vw, 60px) clamp(90px, 22vh, 150px);
@@ -623,7 +542,40 @@
                 grid-template-columns: repeat(3, 1fr);
                 padding: 150px 50px;
         }
+}
 
+@media screen and (max-width: 880px) {
+        .nav-wrap {
+                padding: 24px 18px 18px;
+        }
+
+        .nav {
+                margin: 0 0 70px 18px;
+        }
+
+        .nav li {
+                margin-bottom: clamp(32px, 10vw, 68px);
+        }
+
+        .nav li:after {
+                height: clamp(220px, 60vh, 420px);
+                left: -24px;
+        }
+
+        .nav li .nav-counter {
+                font-size: clamp(18px, 5vw, 22px);
+        }
+
+        .nav li.active .nav-counter {
+                font-size: clamp(30px, 9vw, 40px);
+        }
+
+        .section2 .skip-portfolio {
+                --skip-offset: clamp(46px, 7vw, 62px);
+                --skip-shift: 14px;
+                font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+                padding: 9px 18px;
+        }
 }
 
 @media screen and (max-width: 768px) {
@@ -662,40 +614,45 @@
                 --portfolio-card-gap: clamp(40px, 14vw, 80px);
                 --portfolio-track-padding: clamp(40px, 18vw, 88px);
         }
+
+        .section2 .skip-portfolio {
+                --skip-offset: clamp(40px, 8vw, 56px);
+                --skip-shift: 18px;
+                font-size: clamp(1.1rem, 4.4vw, 1.4rem);
+                padding: 8px 18px;
+        }
+
+        .section3-content .portfolio-scroll {
+                --portfolio-card-width: clamp(420px, 94vw, 680px);
+                --portfolio-card-gap: clamp(48px, 18vw, 90px);
+                --portfolio-track-padding: clamp(36px, 20vw, 96px);
+        }
 }
 
-@media screen and (max-width: 540px) {
-        body {
-                padding-top: clamp(90px, 24vw, 140px);
+@media screen and (max-width: 560px) {
+        .nav-wrap {
+                padding: 20px 14px 14px;
         }
 
         .nav {
-                justify-content: center;
-                gap: clamp(12px, 5vw, 20px);
-                padding: clamp(12px, 4vw, 20px) clamp(18px, 7vw, 30px);
-                border-radius: 30px;
-        }
-
-        .nav::after {
-                bottom: clamp(-16px, -5vw, -12px);
+                margin: 0 0 60px 14px;
         }
 
         .nav li {
-                width: auto;
+                margin-bottom: clamp(28px, 12vw, 56px);
         }
 
-        .nav li a::before {
-                display: none;
-        }
-
-        .nav li a {
-                width: 100%;
-                padding: clamp(10px, 4vw, 16px) clamp(12px, 5vw, 22px);
-                border-radius: 26px;
+        .nav li:after {
+                left: -20px;
+                width: 16px;
         }
 
         .nav li .nav-counter {
-                font-size: clamp(0.7rem, 2.9vw, 0.9rem);
+                font-size: clamp(16px, 5.8vw, 20px);
+        }
+
+        .nav li.active .nav-counter {
+                font-size: clamp(26px, 9vw, 34px);
         }
 
         .section1 .section1-content {
@@ -730,12 +687,20 @@
                 font-size: clamp(1.5rem, 6vw, 2.25rem);
         }
 
+        .section2 .skip-portfolio {
+                --skip-offset: clamp(36px, 9vw, 48px);
+                --skip-shift: 22px;
+                font-size: clamp(1rem, 4.8vw, 1.25rem);
+                padding: 7px 16px;
+        }
+
         .section3-content .portfolio-scroll {
-                --portfolio-card-width: clamp(340px, 96vw, 560px);
-                --portfolio-card-gap: clamp(32px, 16vw, 60px);
-                --portfolio-track-padding: clamp(32px, 20vw, 68px);
+                --portfolio-card-width: clamp(360px, 100vw, 620px);
+                --portfolio-card-gap: clamp(40px, 20vw, 72px);
+                --portfolio-track-padding: clamp(30px, 22vw, 76px);
         }
 }
+
 
 /***********************************************************************************/
 /********************************* Section 3 ***************************************/
@@ -761,7 +726,7 @@
 
 
 .section3-content .portfolio-scroll {
-        --portfolio-card-width: clamp(520px, 45vw, 780px);
+        --portfolio-card-width: clamp(600px, 48vw, 880px);
         --portfolio-card-gap: clamp(70px, 8vw, 160px);
         --portfolio-track-padding: clamp(64px, 10vw, 160px);
         position: absolute;
@@ -780,18 +745,18 @@
         flex: 0 0 var(--portfolio-card-width);
         width: var(--portfolio-card-width);
         min-width: var(--portfolio-card-width);
-        height: clamp(420px, 68vh, 640px);
+        height: clamp(480px, 70vh, 720px);
         background: linear-gradient(-45deg, #07bccc, #482896);
         background-size: 300% 300%;
         animation: gradient 10s ease infinite;
         border-radius: 22px;
-        padding: clamp(22px, 2.6vw, 32px);
+        padding: clamp(24px, 2.8vw, 36px);
         box-shadow: 0 30px 75px rgba(7, 188, 204, 0.25), 0 0 52px rgba(230, 1, 192, 0.35);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        gap: clamp(20px, 2.8vw, 32px);
+        gap: clamp(22px, 3vw, 36px);
         color: #f8f9ff;
 }
 

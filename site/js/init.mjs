@@ -45,13 +45,8 @@ class ScrollEffects {
                 );
 
                 const viewportWidth = section.clientWidth;
-                const computedStyles = window.getComputedStyle(this.portfolioTrack);
-                const paddingRight = parseFloat(computedStyles.paddingRight) || 0;
-                const lastItem = this.portfolioTrack.lastElementChild;
-                const lastItemRight = lastItem
-                        ? lastItem.offsetLeft + lastItem.offsetWidth
-                        : this.portfolioTrack.scrollWidth - paddingRight;
-                const maxTranslate = Math.max(lastItemRight - viewportWidth, 0);
+                const trackWidth = this.portfolioTrack.scrollWidth;
+                const maxTranslate = Math.max(trackWidth - viewportWidth, 0);
                 const translateX = maxTranslate > 0 ? Math.min(progress * maxTranslate, maxTranslate) : 0;
 
                 this.portfolioTrack.style.transform = `translate3d(${-translateX}px, 0, 0)`;

@@ -1,12 +1,6 @@
 import type { Metadata } from "next"
-import { Anton } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
-
-const anton = Anton({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-anton",
-})
 
 export const metadata: Metadata = {
   title: "Jaydensrealm.com",
@@ -20,14 +14,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script
+      <body>
+        {children}
+        <Script
           src="https://kit.fontawesome.com/7ec2dc835f.js"
           crossOrigin="anonymous"
-          async
+          strategy="afterInteractive"
         />
-      </head>
-      <body className={anton.variable}>{children}</body>
+      </body>
     </html>
   )
 }

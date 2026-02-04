@@ -1,0 +1,5 @@
+# v0 rendering files - exclude from git
+app/
+components/
+lib/
+hooks/

@@ -4,11 +4,20 @@
     <title>Jaydensrealm.com</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jayden - Full Stack Developer based in Nashville, TN. Specializing in Java, Python, Rust, React, and cloud architecture." />
+    <meta name="theme-color" content="#1d1d1d" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/section.css" />
+    <link rel="stylesheet" href="css/effects.css" />
     <script src="https://kit.fontawesome.com/7ec2dc835f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- CRT Scanline overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+    
+    <!-- Noise texture overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
     <nav class="nav-wrap" id="navscroller">
         <ul class="nav">
             <li class="active">
@@ -35,17 +44,36 @@
     </nav>
 
     <div class="portal-container">
+        <!-- SECTION 1 - INTRO -->
         <div class="section section1" id="section1">
             <div class="overflow-hidden-wrapper">
                 <div class="section1-content content-container mousetransform">
+                    <!-- Floating code fragments -->
+                    <div class="code-fragments" aria-hidden="true">
+                        <span class="fragment fragment-1">const dev = () => {</span>
+                        <span class="fragment fragment-2">return &lt;Innovation /&gt;</span>
+                        <span class="fragment fragment-3">}</span>
+                        <span class="fragment fragment-4">// Building the future</span>
+                        <span class="fragment fragment-5">async function create() {</span>
+                    </div>
+                    
                     <div class="heading-container mousetransform">
-                        <h1 class="heading-name">I'm Jayden</h1>
+                        <h1 class="heading-name glitch-text" data-text="I'm Jayden">I'm Jayden</h1>
                         <div class="heading-socials">
-                            <a href="#"><i class="fa-brands fa-github"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#"><i class="fa-solid fa-code"></i></a>
+                            <a href="https://github.com/jaydensrealm" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                                <span class="link-glow"></span>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <span class="link-glow"></span>
+                            </a>
+                            <a href="#section3" class="social-link" aria-label="View Projects">
+                                <i class="fa-solid fa-code"></i>
+                                <span class="link-glow"></span>
+                            </a>
                         </div>
-                        <span class="heading-subtext ">Full Stack Developer</span>
+                        <span class="heading-subtext">Full Stack Developer</span>
                         <span class="heading-location">Nashville, TN.</span>
                     </div>
                     <div class="scrolldown-container">
@@ -57,59 +85,210 @@
                 </div>
             </div>
         </div>
+
+        <!-- SECTION 2 - SKILLS -->
         <div class="section section2" id="section2">
-            <a href="#section3" class="skip-portfolio">Skip to portfolio →</a>
+            <a href="#section3" class="skip-portfolio">Skip to portfolio <span class="skip-arrow">&gt;&gt;&gt;</span></a>
             <div class="section2-content">
-                <div class="box skills-header"><h1>Languages</h1></div>
-                <div class="box"><h1>Java</h1></div>
-                <div class="box"><h1>Python</h1></div>
-                <div class="box"><h1>Rust</h1></div>
-                <div class="box"><h1>Go</h1></div>
-                <div class="box"><h1>SQL</h1></div>
-                <div class="box"><h1>Junit</h1></div>
+                <div class="box skills-header"><h1>Languages</h1><div class="header-underline"></div></div>
+                <div class="box skill-box"><i class="fa-brands fa-java skill-icon" aria-hidden="true"></i><h1>Java</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-python skill-icon" aria-hidden="true"></i><h1>Python</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-rust skill-icon" aria-hidden="true"></i><h1>Rust</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-golang skill-icon" aria-hidden="true"></i><h1>Go</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-database skill-icon" aria-hidden="true"></i><h1>SQL</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-vial skill-icon" aria-hidden="true"></i><h1>Junit</h1></div>
 
-                <div class="box skills-header"><h1>Methods</h1></div>
-                <div class="box"><h1>Agile</h1></div>
-                <div class="box"><h1>CI/CD</h1></div>
-                <div class="box"><h1>DevOps</h1></div>
-                <div class="box"><h1>Scrum</h1></div>
-                <div class="box"><h1>Microservices</h1></div>
-                <div class="box"><h1>Design Patterns</h1></div>
+                <div class="box skills-header"><h1>Methods</h1><div class="header-underline"></div></div>
+                <div class="box skill-box"><i class="fa-solid fa-arrows-spin skill-icon" aria-hidden="true"></i><h1>Agile</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-infinity skill-icon" aria-hidden="true"></i><h1>CI/CD</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-gears skill-icon" aria-hidden="true"></i><h1>DevOps</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-users skill-icon" aria-hidden="true"></i><h1>Scrum</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-cubes skill-icon" aria-hidden="true"></i><h1>Microservices</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-diagram-project skill-icon" aria-hidden="true"></i><h1>Design Patterns</h1></div>
 
-                <div class="box skills-header"><h1>Frontend</h1></div>
-                <div class="box"><h1>React</h1></div>
-                <div class="box"><h1>Redux</h1></div>
-                <div class="box"><h1>Next.JS</h1></div>
-                <div class="box"><h1>Svelte</h1></div>
-                <div class="box"><h1>Plain</h1></div>
+                <div class="box skills-header"><h1>Frontend</h1><div class="header-underline"></div></div>
+                <div class="box skill-box"><i class="fa-brands fa-react skill-icon" aria-hidden="true"></i><h1>React</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-layer-group skill-icon" aria-hidden="true"></i><h1>Redux</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-node-js skill-icon" aria-hidden="true"></i><h1>Next.JS</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-bolt skill-icon" aria-hidden="true"></i><h1>Svelte</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-html5 skill-icon" aria-hidden="true"></i><h1>Plain</h1></div>
 
-                <div class="box skills-header"><h1>Backend</h1></div>
-                <div class="box"><h1>Spring</h1></div>
-                <div class="box"><h1>Express</h1></div>
-                <div class="box"><h1>AWS</h1></div>
-                <div class="box"><h1>REST</h1></div>
+                <div class="box skills-header"><h1>Backend</h1><div class="header-underline"></div></div>
+                <div class="box skill-box"><i class="fa-solid fa-leaf skill-icon" aria-hidden="true"></i><h1>Spring</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-node skill-icon" aria-hidden="true"></i><h1>Express</h1></div>
+                <div class="box skill-box"><i class="fa-brands fa-aws skill-icon" aria-hidden="true"></i><h1>AWS</h1></div>
+                <div class="box skill-box"><i class="fa-solid fa-plug skill-icon" aria-hidden="true"></i><h1>REST</h1></div>
             </div>
         </div>
+
+        <!-- SECTION 3 - PORTFOLIO -->
         <div class="section section3" id="section3">
             <div class="section3-wrapper">
+                <div class="section3-header">
+                    <h2 class="portfolio-title" data-text="PROJECTS">PROJECTS</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="portfolio-progress"></div>
+                        </div>
+                        <span class="progress-text">Scroll to explore</span>
+                    </div>
+                </div>
                 <div class="section3-content">
                     <div class="portfolio-scroll">
-                        <div class="portfolio-item">AAAAAAAA</div>
-                        <div class="portfolio-item">AAAAAAAA</div>
-                        <div class="portfolio-item">AAAAAAAA</div>
-                        <div class="portfolio-item">AAAAAAAA</div>
+                        <div class="portfolio-item">
+                            <div class="project-number" aria-hidden="true">01</div>
+                            <div class="project-content">
+                                <span class="project-status">Production</span>
+                                <h3 class="project-title">Project Alpha</h3>
+                                <p class="project-description">A distributed microservices architecture for real-time data processing with event-driven design.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Spring</span>
+                                    <span class="tech-tag">Kafka</span>
+                                    <span class="tech-tag">Redis</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">
+                                    <span>View Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="card-corner tl"></div>
+                            <div class="card-corner tr"></div>
+                            <div class="card-corner bl"></div>
+                            <div class="card-corner br"></div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="project-number" aria-hidden="true">02</div>
+                            <div class="project-content">
+                                <span class="project-status">Active</span>
+                                <h3 class="project-title">Project Beta</h3>
+                                <p class="project-description">Full-stack web application with reactive frontend and serverless backend architecture.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">AWS Lambda</span>
+                                    <span class="tech-tag">DynamoDB</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">
+                                    <span>View Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="card-corner tl"></div>
+                            <div class="card-corner tr"></div>
+                            <div class="card-corner bl"></div>
+                            <div class="card-corner br"></div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="project-number" aria-hidden="true">03</div>
+                            <div class="project-content">
+                                <span class="project-status">Open Source</span>
+                                <h3 class="project-title">Project Gamma</h3>
+                                <p class="project-description">High-performance CLI tool built for system automation and infrastructure monitoring.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Rust</span>
+                                    <span class="tech-tag">tokio</span>
+                                    <span class="tech-tag">serde</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">
+                                    <span>View Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="card-corner tl"></div>
+                            <div class="card-corner tr"></div>
+                            <div class="card-corner bl"></div>
+                            <div class="card-corner br"></div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="project-number" aria-hidden="true">04</div>
+                            <div class="project-content">
+                                <span class="project-status">Research</span>
+                                <h3 class="project-title">Project Delta</h3>
+                                <p class="project-description">Machine learning pipeline for predictive analytics in e-commerce platforms.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">FastAPI</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">
+                                    <span>View Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="card-corner tl"></div>
+                            <div class="card-corner tr"></div>
+                            <div class="card-corner bl"></div>
+                            <div class="card-corner br"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- SECTION 4 - CONTACT -->
         <div class="section section4" id="section4">
             <div class="section4-content content-container">
-                <h1>Section 4</h1>
-                <p>Content for section 4!</p>
+                <div class="contact-header">
+                    <h2 class="contact-title glitch-text" data-text="LET'S CONNECT">LET'S CONNECT</h2>
+                    <p class="contact-subtitle">Ready to build something extraordinary?</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <a href="mailto:hello@jaydensrealm.com" class="contact-card">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">hello@jaydensrealm.com</span>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner br"></div>
+                    </a>
+                    
+                    <a href="https://github.com/jaydensrealm" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">@jaydensrealm</span>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner br"></div>
+                    </a>
+                    
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">Jayden</span>
+                        <div class="card-corner tl"></div>
+                        <div class="card-corner br"></div>
+                    </a>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">contact.sh</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="terminal-prompt">$</span> echo $AVAILABILITY</p>
+                        <p class="terminal-output">Open to new opportunities</p>
+                        <p><span class="terminal-prompt">$</span> cat skills.txt | wc -l</p>
+                        <p class="terminal-output">21 battle-tested technologies</p>
+                        <p><span class="terminal-prompt">$</span> ./hire-jayden.sh</p>
+                        <p class="terminal-output typing-effect">Initializing collaboration...</p>
+                        <p><span class="terminal-prompt">$</span> <span class="terminal-cursor">_</span></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <script type="module" src="js/init.mjs"></script>
 </body>
 </html>
-
